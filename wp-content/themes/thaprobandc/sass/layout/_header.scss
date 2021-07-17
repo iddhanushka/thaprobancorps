@@ -1,0 +1,74 @@
+header {
+  background: #ffcc00;
+  padding: 5px 0;
+  border-bottom: 5px solid #663300;
+
+  .company-brand {
+    img {
+      width: 100%;
+      max-width: 70%;
+    }
+  }
+
+  .main-menu {
+    width: 100%;
+  }
+
+  .company-info {
+    width: 100%;
+
+    ul {
+      display: flex;
+      list-style-type: none;
+      padding-left: 0;
+      float: right;
+      margin-bottom: 0px;
+
+      li {
+        padding: 0 10px;
+        color: #663300;
+        font-size: 13px;
+        font-weight: 500;
+      }
+
+      li.fb,
+      li.twitter {
+        border-left: 1px solid #663300;
+      }
+
+      a {
+        color: #663300;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .main-menu-bar {
+    width: 100%;
+
+    ul {
+      li {
+        text-transform: capitalize;
+        font-weight: 600;
+        font-size: 17px;
+      }
+
+      a {
+        color: #333333 !important;
+        padding-bottom: 0px;
+
+        &:hover {
+          color: #fff !important;
+          transition: 0.5s;
+        }
+        
+      }
+
+      li.current-menu-item {
+        a {
+          color: #fff !important;
+        }
+      }
+    }
+  }
+}

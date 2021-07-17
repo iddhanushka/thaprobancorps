@@ -1,0 +1,49 @@
+
+#our-crew {
+    padding: 80px 0;
+
+    .crew {
+
+        p {
+            color: #333333;
+            line-height: 27px;
+        }
+
+        .features {
+
+            &:not(:last-child) {
+                margin: 50px 0;
+            }
+
+            .feature-content {
+
+                h1 {
+                    font-size: 18px;
+                    color: #cc9900;
+                    font-weight: 500;
+                    text-decoration: underline;
+                    text-underline-position: under;
+                    margin-bottom: 20px;
+    
+                }
+            }
+
+            .feature-img {
+
+                img {
+                    width: 160px;
+                    height: 160px;
+                    object-fit: cover;
+                    border-radius: 50%;
+                    margin: auto;
+                    display: block;
+                    border: 1px solid #cc9900;
+                    padding: 5px;
+                }
+                
+            }
+
+        }
+
+    }
+}

@@ -1,0 +1,114 @@
+
+#contact-us {
+    padding: 80px 0;
+
+    .contact-form {
+
+        h1 {
+            font-size: 25px;
+            color: #333;
+            font-weight: 500;
+            margin-bottom: 50px;
+        }
+
+        form {
+
+            label {
+                font-size: 15px;
+                color: #333;
+                font-weight: 500;
+            }
+
+            input {
+                border: none;
+                border-bottom: 1px solid #dadada;
+                border-radius: unset;
+                font-size: 15px;
+
+                &:focus {
+                    box-shadow: unset;
+                }
+
+            }
+
+            textarea {
+                border: none;
+                border-bottom: 1px solid #dadada;
+                border-radius: unset;
+
+                &:focus {
+                    box-shadow: unset;
+                } 
+
+            }
+
+            button {
+                font-size: 15px;
+                padding: 6px 30px;
+                margin-top: 15px;
+
+                &:focus {
+                    box-shadow: unset;
+                } 
+            }
+
+        }
+
+    }
+
+    .follow-us {
+        padding-left: 40px;
+
+        h2 {
+            font-size: 25px;
+            color: #333;
+            font-weight: 500;
+            margin-bottom: 50px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+
+            li {
+                margin-bottom: 10px;
+            }
+
+            ul.sub-list {
+                display: flex;
+
+                li {
+
+                    svg {
+                        margin-right: 10px;
+                        width: 27px;
+                        height: 27px;
+                        color: #a56900;
+                        border: 1px solid #a56900;
+                        padding: 6px;
+                        border-radius: 50%;
+                    }
+
+                    h3 {
+                        font-size: 15px;
+                        font-weight: 500;
+                        color: #333;
+                    }
+
+                    a {
+                        font-size: 15px;
+                        color: #333;
+                        text-decoration: none;
+                        font-weight: 400;
+                    }
+
+                    address {
+                        line-height: 27px;
+                    }
+
+                }
+            }
+        }
+
+    }
+}
