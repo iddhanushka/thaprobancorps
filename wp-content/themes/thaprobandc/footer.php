@@ -77,7 +77,7 @@ $container = get_theme_mod( 'thaproband_container_type' );
 
 		<div class="powered-by">
 			<div class="container">
-				<h6>&copy; <?php echo date('Y'); ?> <a href="">Hexacode Solutions&trade; (Pvt) Ltd.</a> All Rights Reserved.</h6>
+				<h6>&copy; <?php echo date('Y'); ?> <a href="">Hexacode&trade; (Pvt) Ltd.</a> All Rights Reserved.</h6>
 			</div>
 		</div>
 
