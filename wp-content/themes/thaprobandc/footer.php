@@ -90,8 +90,16 @@ $container = get_theme_mod( 'thaproband_container_type' );
 
 <?php wp_footer(); ?>
 
-<script>
+	<script>
 		AOS.init();
+
+		// slick slider initialize
+		// $(document).ready(function(){
+		// 	$('.your-class').slick({
+		// 		setting-name: setting-value
+		// 	});
+		// });
+
 	</script>
 
 </body>

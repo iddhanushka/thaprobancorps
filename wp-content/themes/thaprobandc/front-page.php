@@ -7,7 +7,47 @@
 ?>
 
 <section id="top-cover">
-    <?php echo do_shortcode('[rev_slider alias="thaproband home cover"]'); ?>
+    <?php // echo do_shortcode('[rev_slider alias="thaproband home cover"]'); ?>
+
+    <div class="your-class">
+        <div class="slider1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="slider-content">
+                            <h1>The Most Dedicated Security</h1>
+                            <p>Thaproban Corps. Security & Investigations (Pvt) Ltd. is a leading private security firm in Sri Lanka</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slider2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="slider-content">
+                            <h1>The Most Dedicated Security</h1>
+                            <p>Thaproban Corps. Security & Investigations (Pvt) Ltd. is a leading private security firm in Sri Lanka</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slider3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="slider-content">
+                            <h1>The Most Dedicated Security</h1>
+                            <p>Thaproban Corps. Security & Investigations (Pvt) Ltd. is a leading private security firm in Sri Lanka</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </section>
 
 <section id="best-security-sl">
