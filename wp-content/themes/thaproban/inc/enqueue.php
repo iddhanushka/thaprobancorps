@@ -26,7 +26,6 @@ if ( ! function_exists( 'thaproband_scripts' ) ) {
 		wp_enqueue_style( 'aos-scroll-styles', get_template_directory_uri() . '/vendor/aos/aos.css', array() );
 		wp_enqueue_style( 'slick-slider-styles', get_template_directory_uri() . '/vendor/slick/slick.css', array() );
 		wp_enqueue_style( 'slick-slider-theme-styles', get_template_directory_uri() . '/vendor/slick/slick-theme.css', array() );
-
 		
 		wp_enqueue_script( 'jquery' );
 

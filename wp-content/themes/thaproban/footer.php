@@ -94,10 +94,18 @@ $container = get_theme_mod( 'thaproband_container_type' );
 		AOS.init();
 
 		// slick slider initialize
-		// $(document).ready(function(){
-		// 	$('.your-class').slick({
-		// 		setting-name: setting-value
-		// 	});
+		// jQuery(document).ready(function(){
+			jQuery('.homeSlider').slick({
+				dots: true,
+				infinite: true,
+				speed: 300,
+				slidesToShow: 1,
+				autoplay: true,
+				autoplaySpeed: 5000,
+				fade: true,
+				speed: 1700,
+				pauseOnHover: false
+			});
 		// });
 
 	</script>

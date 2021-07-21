@@ -28,7 +28,7 @@ $container = get_theme_mod( 'thaproband_container_type' );
 	<!-- ******************* The Navbar Area ******************* -->
 
 	<header>
-		<div class="container pl-0 pr-0">
+		<div class="container">
 			<nav class="navbar navbar-expand-md navbar-dark pl-0 pr-0">
 
 				<!-- Your site title as branding in the menu -->

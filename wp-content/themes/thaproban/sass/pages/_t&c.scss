@@ -27,6 +27,7 @@
       font-size: 15px;
       font-weight: normal;
       list-style-type: none;
+      display: flex;
 
       &:not(:last-child) {
         margin-bottom: 10px;
@@ -34,6 +35,9 @@
 
       svg {
         color: #cc9900;
+        position: relative;
+        top: 5px;
+        margin-right: 10px;
       }
     }
   }

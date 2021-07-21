@@ -49,7 +49,6 @@
                                 <span>Mr. Amal Patiranege</span>
                                 <div class="blockquote-footer">CEO, <cite title="Source Title">Thaproban Corps.</cite></div>
                             </blockquote>
-
                         </div>
                     </div>
                 </div>
