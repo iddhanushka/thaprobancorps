@@ -20,9 +20,9 @@ if ( ! function_exists( 'thaproband_scripts' ) ) {
 		// $css_version = $theme_version . '.' . filemtime( get_template_directory() . '/css/theme.min.css' );
 		// wp_enqueue_style( 'thaproband-styles', get_template_directory_uri() . '/css/theme.min.css', array(), $css_version );
 		
-		wp_enqueue_style( 'theme-styles', get_template_directory_uri() . '/css/styles.min.css', array() );
 		wp_enqueue_style( 'bootstrap-styles', get_template_directory_uri() . '/vendor/bootstrap/bootstrap.min.css', array() );
 		wp_enqueue_style( 'fontawesome-styles', get_template_directory_uri() . '/vendor/fontawesome/all.min.css', array() );
+		wp_enqueue_style( 'theme-styles', get_template_directory_uri() . '/css/styles.min.css', array() );
 		wp_enqueue_style( 'aos-scroll-styles', get_template_directory_uri() . '/vendor/aos/aos.css', array() );
 		wp_enqueue_style( 'slick-slider-styles', get_template_directory_uri() . '/vendor/slick/slick.css', array() );
 		wp_enqueue_style( 'slick-slider-theme-styles', get_template_directory_uri() . '/vendor/slick/slick-theme.css', array() );

@@ -42,3 +42,15 @@
     }
   }
 }
+
+// Responsive
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  #t-and-c {
+    padding: 60px 0;
+  }
+
+  #t-and-c .terms h1 {
+    font-size: 18px;
+  }
+}

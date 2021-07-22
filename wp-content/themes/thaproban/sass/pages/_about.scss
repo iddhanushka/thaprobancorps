@@ -1,97 +1,124 @@
-
 #about-us {
-    padding: 80px 0;
+  padding: 80px 0;
 
-    .about {
-
-        h1 {
-            font-size: 30px;
-            color: #a56900;
-            font-weight: 500;
-            margin-bottom: 30px;
-        }
-
-        p {
-            font-size: 15px;
-            color: #333;
-            font-weight: 400;
-            line-height: 27px;
-
-            &:not(:last-child) {
-                margin-bottom: 30px;
-            }
-        }
-
+  .about {
+    h1 {
+      font-size: 30px;
+      color: #a56900;
+      font-weight: 500;
+      margin-bottom: 30px;
     }
 
-    .goal {
+    p {
+      font-size: 15px;
+      color: #333;
+      font-weight: 400;
+      line-height: 27px;
 
-        h2 {
-            font-size: 20px;
-            color: #a56900;
-            font-weight: 500;
-        }
+      &:not(:last-child) {
+        margin-bottom: 30px;
+      }
+    }
+  }
 
-        p {
-            font-size: 15px;
-            color: #333;
-            font-weight: 400;
-            line-height: 27px;
-        }
-
-        .vision {
-            margin-bottom: 40px;
-            text-align: center;
-            border: 1px solid #efebeb;
-            padding: 20px;
-            border-radius: 7px;
-        }
-
-        .mission {
-            text-align: center;
-            border: 1px solid #efebeb;
-            padding: 20px;
-            border-radius: 7px;
-        }
-
+  .goal {
+    h2 {
+      font-size: 20px;
+      color: #a56900;
+      font-weight: 500;
     }
 
+    p {
+      font-size: 15px;
+      color: #333;
+      font-weight: 400;
+      line-height: 27px;
+    }
+
+    .vision {
+      margin-bottom: 40px;
+      text-align: center;
+      border: 1px solid #efebeb;
+      padding: 20px;
+      border-radius: 7px;
+    }
+
+    .mission {
+      text-align: center;
+      border: 1px solid #efebeb;
+      padding: 20px;
+      border-radius: 7px;
+    }
+  }
 }
 
 #ceo {
-    padding-bottom: 80px;
+  padding-bottom: 80px;
 
-    .ceo-word {
-
-        img {
-            width: 130px;
-            height: 130px;
-            border: 1px solid #a56900;
-            border-radius: 50%;
-            padding: 3px;
-            display: block;
-            margin: auto;
-            margin-bottom: 20px;
-        }
-
-        p {
-            font-size: 17px;
-            color: lighten(#333333, 30%);
-            font-weight: 500;
-            margin-bottom: 10px !important;
-            font-style: italic;
-        }
-
-        span {
-            font-size: 15px;
-            color: #6c757d;
-            font-weight: 400;
-        }
-
-        .blockquote-footer {
-            font-size: 12px;
-        }
-
+  .ceo-word {
+    img {
+      width: 130px;
+      height: 130px;
+      border: 1px solid #a56900;
+      border-radius: 50%;
+      padding: 3px;
+      display: block;
+      margin: auto;
+      margin-bottom: 20px;
     }
 
+    p {
+      font-size: 17px;
+      color: lighten(#333333, 30%);
+      font-weight: 300;
+      margin-bottom: 10px !important;
+      font-style: italic;
+    }
+
+    span {
+      font-size: 15px;
+      color: #6c757d;
+      font-weight: 400;
+    }
+
+    .blockquote-footer {
+      font-size: 12px;
+    }
+  }
+}
+
+// Responsive
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  #about-us {
+    padding: 60px 0;
+  }
+  #about-us .about h1 {
+    font-size: 27px;
+  }
+
+  #about-us .goal h2 {
+    font-size: 17px;
+  }
+
+  #ceo .ceo-word p {
+    font-size: 15px;
+  }
+
+  #ceo .ceo-word span {
+    font-size: 13px;
+  }
+
+  #ceo .ceo-word .blockquote-footer {
+    font-size: 10px;
+  }
+
+  #ceo .ceo-word img {
+    width: 120px;
+    height: 120px;
+  }
+
+  #ceo {
+    padding-bottom: 60px;
+  }
 }

@@ -104,3 +104,23 @@
     }
   }
 }
+
+// Responsive
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  #posts .post-card .card-content h1 {
+    font-size: 15px;
+  }
+
+  #posts .post-card .card-content a.continue-reading {
+    font-size: 13px;
+  }
+
+  #posts .recent-posts-widget-with-thumbnails .rpwwt-widget h3.widget-title {
+    font-size: 18px;
+  }
+
+  #posts {
+    padding: 60px 0;
+  }
+}

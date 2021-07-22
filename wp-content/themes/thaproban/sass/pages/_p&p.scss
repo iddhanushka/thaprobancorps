@@ -38,3 +38,15 @@
     }
   }
 }
+
+// Responsive
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  #p-and-p {
+    padding: 60px 0;
+  }
+
+  #p-and-p .privacy h1 {
+    font-size: 18px;
+  }
+}

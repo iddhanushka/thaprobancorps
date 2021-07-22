@@ -99,7 +99,7 @@
     </div>
 </section>
 
-<section>
+<section id="location">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12 pl-0 pr-0">

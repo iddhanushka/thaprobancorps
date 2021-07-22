@@ -437,3 +437,125 @@
     }
   }
 }
+
+// Responsive
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  #top-cover .homeSlider .slider .slider-content h1 {
+    font-size: 55px;
+  }
+
+  #best-security-sl .best-security h1 {
+    font-size: 35px;
+    margin-bottom: 20px;
+  }
+
+  #best-security-sl .security-services h2 {
+    font-size: 17px;
+    margin-bottom: 10px;
+  }
+
+  #best-security-sl a {
+    font-size: 16px;
+  }
+
+  #welcome-thaproband .welcome h1 {
+    font-size: 35px;
+    margin-bottom: 20px;
+  }
+
+  #we-are-for-you .our-best h1 {
+    font-size: 35px;
+    margin-bottom: 20px;
+  }
+
+  #we-are-for-you .reasons ul li .title h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  #quick-contact .contact-nbr h1 {
+    font-size: 25px;
+  }
+
+  #quick-contact .contact-nbr a {
+    font-size: 35px;
+  }
+
+  #industry-updates .article-card .card-img img {
+    height: 160px;
+  }
+
+  #industry-updates .article-card .card-content h1 {
+    font-size: 17px;
+  }
+
+  #industry-updates .article-card .card-content span {
+    font-size: 11px;
+  }
+
+  #security-team .team-info .best-security-team h1 {
+    font-size: 35px;
+  }
+
+  #quick-contact .getin-btn a {
+    font-size: 20px;
+  }
+
+  #security-team {
+    height: 570px;
+  }
+
+  #security-team .cover-img {
+    height: 570px;
+  }
+
+  #security-team .cover-img img {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  #security-team .team-info .best-security-team {
+    padding-right: 0;
+  }
+
+  #happy-customer .reviews h1 {
+    font-size: 35px;
+  }
+
+  #happy-customer .reviews .customer-note h4 {
+    font-size: 20px;
+  }
+
+  #happy-customer .reviews .customer-img h2 {
+    font-size: 16px;
+  }
+
+  #happy-customer .reviews .customer-img h3 {
+    font-size: 10px;
+  }
+
+  #happy-customer .reviews .customer-note ul li {
+    font-size: 20px;
+  }
+
+  #get-in-touch .contact-nbr h1 {
+    font-size: 30px;
+  }
+
+  #best-security-sl {
+    padding: 60px 0;
+  }
+
+  #welcome-thaproband {
+    padding: 60px 0;
+  }
+
+  #we-are-for-you {
+    padding: 60px 0px;
+  }
+
+  #industry-updates {
+    padding: 80px 0px;
+  }
+}

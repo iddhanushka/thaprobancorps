@@ -15,7 +15,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="row justify-content-center">
-                            <div class="col-lg-8 col-md-12">
+                            <div class="col-lg-10 col-md-12">
                                 <div class="slider-content">
                                     <h1>The Most Dedicated Security</h1>
                                     <p>Thaproban Corps. Security & Investigations (Pvt) Ltd. is a leading private security firm in Sri Lanka</p>
@@ -31,7 +31,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="row justify-content-center">
-                            <div class="col-lg-8 col-md-12">
+                            <div class="col-lg-10 col-md-12">
                                 <div class="slider-content">
                                     <h1>The Most Dedicated Security</h1>
                                     <p>Thaproban Corps. Security & Investigations (Pvt) Ltd. is a leading private security firm in Sri Lanka</p>
@@ -47,7 +47,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="row justify-content-center">
-                            <div class="col-lg-8 col-md-12">
+                            <div class="col-lg-10 col-md-12">
                                 <div class="slider-content">
                                     <h1>The Most Dedicated Security</h1>
                                     <p>Thaproban Corps. Security & Investigations (Pvt) Ltd. is a leading private security firm in Sri Lanka</p>
@@ -78,7 +78,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-10">
                         <div class="row">
-                            <div class="col-lg-4">
+                            <div class="col-lg-4 col-md-4">
                                 <div class="security-services" data-aos="zoom-in" data-aos-duration="1500">
                                     <img src="<?php echo get_template_directory_uri(); ?>/img/guard.png" alt="guard">
                                     <h2>Commercial & Industrial</h2>
@@ -86,7 +86,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-4">
+                            <div class="col-lg-4 col-md-4">
                                 <div class="security-services" data-aos="zoom-in" data-aos-duration="1500">
                                     <img src="<?php echo get_template_directory_uri(); ?>/img/guard.png" alt="guard">
                                     <h2>Body Guards & Cash Guards</h2>
@@ -94,7 +94,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-4">
+                            <div class="col-lg-4 col-md-4">
                                 <div class="security-services" data-aos="zoom-in" data-aos-duration="1500">
                                     <img src="<?php echo get_template_directory_uri(); ?>/img/guard.png" alt="guard">
                                     <h2>Investigations & Audits</h2>
@@ -231,7 +231,7 @@
                 while ($homeBlogs->have_posts()) {
                     $homeBlogs->the_post(); ?>
 
-                    <div class="col-lg-4">
+                    <div class="col-lg-4 col-md-4">
                         <div class="article-card" data-aos="zoom-in" data-aos-duration="1500">
                             <div class="card-img">
                                 <a href="<?php the_permalink(); ?>"><?php echo get_the_post_thumbnail(); ?></a>
@@ -296,7 +296,7 @@
                                     <div class="carousel-item active">
                                         <div class="customer-comment">
                                             <div class="row">
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-4 col-md-4">
                                                     <div class="customer-img">
                                                         <img src="<?php echo get_template_directory_uri(); ?>/img/customer-img.png" alt="customer-img.png">
                                                         <h2>Mr. Jorge Kevin</h2>
@@ -304,7 +304,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-lg-8 align-self-center">
+                                                <div class="col-lg-8 col-md-8 align-self-center">
                                                     <div class="customer-note">
                                                         <h4>Excellent</h4>
                                                         <ul>

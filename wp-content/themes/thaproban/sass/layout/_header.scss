@@ -71,3 +71,15 @@ header {
     }
   }
 }
+
+// Responsive
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  header .main-menu-bar ul li {
+    font-size: 16px;
+  }
+
+  header .company-brand img {
+    max-width: 60%;
+  }
+}
