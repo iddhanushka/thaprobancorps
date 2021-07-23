@@ -121,3 +121,28 @@
     height: 350px;
   }
 }
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #contact-us {
+    padding: 50px 0;
+  }
+
+  #contact-us .contact-form h1 {
+    font-size: 23px;
+    margin-bottom: 40px;
+  }
+
+  #contact-us .follow-us {
+    padding-left: 0;
+    margin-top: 50px;
+  }
+
+  #contact-us .follow-us h2 {
+    font-size: 23px;
+    margin-bottom: 40px;
+  }
+
+  #location .map iframe {
+    height: 300px;
+  }
+}

@@ -13,7 +13,7 @@
       img {
         width: 100%;
         object-fit: cover;
-        height: 110px;
+        height: 130px;
       }
     }
 
@@ -97,6 +97,7 @@
             img {
               border: 1px solid #fc0;
               padding: 1px;
+              object-fit: cover;
             }
           }
         }
@@ -122,5 +123,23 @@
 
   #posts {
     padding: 60px 0;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #posts {
+    padding: 50px 0;
+  }
+
+  #posts .post-card .card-content h1 {
+    font-size: 15px;
+  }
+
+  #posts .recent-posts-widget-with-thumbnails .rpwwt-widget h3.widget-title {
+    font-size: 18px;
+  }
+
+  #posts .post-card .card-img img {
+    height: 110px;
   }
 }

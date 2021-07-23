@@ -11,9 +11,9 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="row justify-content-center">
-                    <div class="col-lg-10">
+                    <div class="col-lg-10 col-md-12">
                         <div class="row">
-                            <div class="col-lg-7">
+                            <div class="col-lg-7 col-md-12">
                                 <div class="contact-form" data-aos="fade-right" data-aos-duration="1500">
                                     <h1>Get in touch with us!</h1>
                                     <form>
@@ -46,7 +46,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-5">
+                            <div class="col-lg-5 col-md-12">
                                 <div class="follow-us" data-aos="fade-left" data-aos-duration="1500">
                                     <h2>Contact us</h2>
                                     <ul>

@@ -145,7 +145,7 @@
                 <div class="row justify-content-center">
                         <div class="col-lg-10">
                             <div class="row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-6 col-md-6">
                                         <div class="reasons" data-aos="fade-right" data-aos-duration="1500">
                                             <ul>
                                                 <li><i class="far fa-bell"></i></li>
@@ -175,7 +175,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-6 align-self-center">
+                                    <div class="col-lg-6 col-md-6 align-self-center">
                                         <div class="info" data-aos="fade-left" data-aos-duration="1500">
                                             <p>Thaproban DC Security & Investigations (Pvt) Ltd. is a leading private security firm based in Sri Lanka. Our specialties include Commercial</p>
                                             <p>Industrial Security, Event Security, Mobile Patrols, Residential Security, Body Guards (Close Protection Operations), Cash Guards, Traditional and</p>
@@ -197,14 +197,14 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-9">
                         <div class="row">
-                            <div class="col-lg-6">
+                            <div class="col-lg-6 col-md-6">
                                 <div class="contact-nbr" data-aos="zoom-in" data-aos-duration="1500">
                                     <h1>Quick contact:</h1>
                                     <a href="tel:+9477­0070777">+94 77 ­00 70 777</a>
                                 </div>
                             </div>
 
-                            <div class="col-lg-6">
+                            <div class="col-lg-6 col-md-6">
                                 <div class="getin-btn" data-aos="fade-left" data-aos-duration="2500">
                                     <a href="<?php echo get_site_url(); ?>/contact">Get in touch</a>
                                 </div>
@@ -324,7 +324,7 @@
                                     <div class="carousel-item">
                                         <div class="customer-comment">
                                             <div class="row">
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-4 col-md-4">
                                                     <div class="customer-img">
                                                         <img src="<?php echo get_template_directory_uri(); ?>/img/customer-img.png" alt="customer-img.png">
                                                         <h2>Mr. Jorge Kevin</h2>
@@ -332,7 +332,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-lg-8 align-self-center">
+                                                <div class="col-lg-8 col-md-8 align-self-center">
                                                     <div class="customer-note">
                                                         <h4>Excellent</h4>
                                                         <ul>
@@ -352,7 +352,7 @@
                                     <div class="carousel-item">
                                         <div class="customer-comment">
                                             <div class="row">
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-4 col-md-4">
                                                     <div class="customer-img">
                                                         <img src="<?php echo get_template_directory_uri(); ?>/img/customer-img.png" alt="customer-img.png">
                                                         <h2>Mr. Jorge Kevin</h2>
@@ -360,7 +360,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-lg-8 align-self-center">
+                                                <div class="col-lg-8 col-md-8 align-self-center">
                                                     <div class="customer-note">
                                                         <h4>Excellent</h4>
                                                         <ul>

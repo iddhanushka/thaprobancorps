@@ -9,7 +9,7 @@
 <section id="about-us">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8">
+            <div class="col-lg-8 col-md-12">
                 <div class="about" data-aos="fade-right" data-aos-duration="1500">
                     <h1>Welcome to Thaproban Corps.</h1>
                     <p>Thaproban Corps. Security & Investigations (Pvt) Ltd. is a leading private security firm based in Sri Lanka. Our specialties include Commercial Industrial Security, Event Security, Mobile Patrols, Residential Security, Body Guards (Close Protection Operations), Cash Guards, Traditional and Ceremonial Guards, Security Audits, Private Investigations, Interrogation Services and CCTV Cameras.</p>
@@ -17,7 +17,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-4 align-self-center">
+            <div class="col-lg-4 col-md-12 align-self-center">
                 <div class="goal" data-aos="fade-left" data-aos-duration="1500">
                     <div class="vision">
                         <h2>Vision</h2>

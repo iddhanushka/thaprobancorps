@@ -1,3 +1,9 @@
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 header {
   background: #ffcc00;
   padding: 5px 0;
@@ -81,5 +87,14 @@ header {
 
   header .company-brand img {
     max-width: 60%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  header .company-brand img {
+    max-width: 65%;
+  }
+  header .main-menu-bar ul li {
+    font-size: 16px;
   }
 }

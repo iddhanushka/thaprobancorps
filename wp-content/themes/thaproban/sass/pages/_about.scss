@@ -122,3 +122,37 @@
     padding-bottom: 60px;
   }
 }
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #about-us {
+    padding: 50px 0;
+  }
+
+  #about-us .about h1 {
+    font-size: 25px;
+    margin-bottom: 20px;
+  }
+
+  #about-us .goal h2 {
+    font-size: 18px;
+  }
+
+  #ceo hr {
+    display: none;
+  }
+
+  #ceo .ceo-word img {
+    width: 120px;
+    height: 120px;
+  }
+
+  #ceo .ceo-word p {
+    font-size: 15px;
+    max-width: 80%;
+    margin: auto;
+  }
+
+  #ceo {
+    padding-bottom: 50px;
+  }
+}

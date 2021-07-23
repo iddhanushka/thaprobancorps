@@ -211,3 +211,43 @@ footer {
     font-size: 18px;
   }
 }
+
+@media (min-width: 768px) and (max-width: 991px) {
+  footer {
+    padding: 60px 0 0;
+  }
+  footer .company-summer img {
+    max-width: 50%;
+  }
+
+  footer .our-links h1 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  footer .contact h1 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  footer .products h1 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  footer .products {
+    margin-top: 30px;
+  }
+
+  footer .contact {
+    margin-top: 30px;
+  }
+
+  footer .contact ul li ul.social-media li {
+    font-size: 18px;
+  }
+
+  footer .company-summer a {
+    margin-top: 20px;
+  }
+}

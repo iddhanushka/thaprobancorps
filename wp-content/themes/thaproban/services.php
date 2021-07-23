@@ -12,7 +12,7 @@
             <div class="col-lg-12">
                 <div class="services-type" data-aos="fade-up"  data-aos-duration="1500">
                     <div class="row">
-                        <div class="col-3">
+                        <div class="col-lg-3 col-md-4">
                             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                 <a class="nav-link active" id="v-pills-commercial-tab" data-toggle="pill" href="#v-pills-commercial" role="tab" aria-controls="v-pills-commercial" aria-selected="true">Commercial & Industrial Security</a>
                                 <a class="nav-link" id="v-pills-traditional-tab" data-toggle="pill" href="#v-pills-traditional" role="tab" aria-controls="v-pills-traditional" aria-selected="false">Traditional & Ceremonial Guards</a>
@@ -21,7 +21,7 @@
                                 <a class="nav-link" id="v-pills-cctv-tab" data-toggle="pill" href="#v-pills-cctv" role="tab" aria-controls="v-pills-cctv" aria-selected="false">CCTV Camera Systems</a>
                             </div>
                         </div>
-                        <div class="col-9">
+                        <div class="col-lg-9 col-md-8">
                             <div class="tab-content" id="v-pills-tabContent">
                                 <div class="tab-pane fade show active" id="v-pills-commercial" role="tabpanel" aria-labelledby="v-pills-ommercial-tab">
                                     <div class="commercial">

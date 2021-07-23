@@ -22,7 +22,7 @@ get_header();
 		<div class="container">
 			<div class="row">
 
-				<div class="col-lg-9">
+				<div class="col-lg-9 col-md-12">
 
 					<div class="row">
 						<?php if ( have_posts() ) : ?>
@@ -31,7 +31,7 @@ get_header();
 
 							<?php while ( have_posts() ) : the_post(); ?>
 
-								<div class="col-lg-4">
+								<div class="col-lg-4 col-md-4">
 									<div class="post-card" data-aos="zoom-in" data-aos-duration="1500">
 										<div class="card-img">
 											<a href="<?php the_permalink(); ?>"><?php echo get_the_post_thumbnail(); ?></a>
@@ -62,7 +62,7 @@ get_header();
 					
 				</div>
 
-				<div class="col-lg-3">
+				<div class="col-lg-3 col-md-12">
 					<div class="recent-blogs" data-aos="fade-left" data-aos-duration="1500">
 						<?php dynamic_sidebar( 'right-sidebar' ); ?>
 					</div>
