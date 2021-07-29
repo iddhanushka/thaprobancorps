@@ -31,7 +31,7 @@ get_header();
 
 							<?php while ( have_posts() ) : the_post(); ?>
 
-								<div class="col-lg-4 col-md-4">
+								<div class="col-lg-4 col-md-4 col-sm-6">
 									<div class="post-card" data-aos="zoom-in" data-aos-duration="1500">
 										<div class="card-img">
 											<a href="<?php the_permalink(); ?>"><?php echo get_the_post_thumbnail(); ?></a>

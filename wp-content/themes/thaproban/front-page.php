@@ -95,7 +95,7 @@
                             </div>
 
                             <div class="col-lg-4 col-md-4">
-                                <div class="security-services" data-aos="zoom-in" data-aos-duration="1500">
+                                <div class="security-services investigations" data-aos="zoom-in" data-aos-duration="1500">
                                     <img src="<?php echo get_template_directory_uri(); ?>/img/guard.png" alt="guard">
                                     <h2>Investigations & Audits</h2>
                                     <p>Investigate financial crimes, unauthorized access, violations of orders and instructions promulgated, unauthorized use of official properties etc.</p>
@@ -231,7 +231,7 @@
                 while ($homeBlogs->have_posts()) {
                     $homeBlogs->the_post(); ?>
 
-                    <div class="col-lg-4 col-md-4">
+                    <div class="col-lg-4 col-md-4 col-sm-6">
                         <div class="article-card" data-aos="zoom-in" data-aos-duration="1500">
                             <div class="card-img">
                                 <a href="<?php the_permalink(); ?>"><?php echo get_the_post_thumbnail(); ?></a>

@@ -70,7 +70,17 @@
   }
 
   .comment-area {
-    textarea {
+    h3 {
+      font-size: 20px;
+    }
+
+    p,
+    label {
+      font-size: 15px;
+    }
+
+    textarea,
+    input {
       border-color: lighten(#333333, 50%);
       &:focus {
         box-shadow: none;
@@ -82,5 +92,73 @@
         box-shadow: none;
       }
     }
+  }
+}
+
+// Responsive
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  #single-post {
+    padding: 60px 0;
+  }
+
+  #single-post .recent-posts-widget-with-thumbnails .rpwwt-widget h3.widget-title {
+    font-size: 18px;
+  }
+
+  #single-post .single-blog-card .blog-card-body h1 {
+    font-size: 20px;
+  }
+
+  #single-post .comment-area .form-submit input {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #single-post {
+    padding: 50px 0;
+  }
+
+  #single-post .single-blog-card .blog-card-header img {
+    height: 300px;
+  }
+
+  #single-post .single-blog-card .blog-card-body h1 {
+    font-size: 20px;
+  }
+
+  #single-post .comment-area .form-submit input {
+    font-size: 15px;
+  }
+
+  #single-post .side-bar {
+    margin-top: 30px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  #single-post {
+    padding: 40px 0;
+  }
+
+  #single-post .single-blog-card .blog-card-body h1 {
+    font-size: 16px;
+  }
+
+  #single-post .recent-posts-widget-with-thumbnails .rpwwt-widget h3.widget-title {
+    font-size: 16px;
+  }
+
+  #single-post .side-bar {
+    margin-top: 30px;
+  }
+
+  #single-post .comment-area .form-submit input {
+    font-size: 15px;
+  }
+
+  #single-post .comment-area h3 {
+    font-size: 18px;
   }
 }

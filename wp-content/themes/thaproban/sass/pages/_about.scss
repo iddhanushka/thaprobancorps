@@ -156,3 +156,35 @@
     padding-bottom: 50px;
   }
 }
+
+@media (min-width: 576px) and (max-width: 767px) {
+  #about-us {
+    padding: 40px 0;
+  }
+  #about-us .about h1 {
+    font-size: 25px;
+    margin-bottom: 15px;
+  }
+  #about-us .about p {
+    text-align: justify;
+  }
+  #about-us .goal .vision {
+    margin-bottom: 15px;
+  }
+  #ceo hr {
+    display: none;
+  }
+  #ceo .ceo-word img {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 15px;
+  }
+  #ceo .ceo-word p {
+    font-size: 16px;
+    max-width: 90%;
+    margin: auto;
+  }
+  #ceo {
+    padding-bottom: 40px;
+  }
+}

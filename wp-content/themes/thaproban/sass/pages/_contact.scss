@@ -146,3 +146,26 @@
     height: 300px;
   }
 }
+
+@media (min-width: 576px) and (max-width: 767px) {
+  #contact-us .contact-form form button {
+    font-size: 14px;
+    padding: 4px 21px;
+  }
+  #contact-us .follow-us h2 {
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+  #contact-us .follow-us {
+    padding-left: 0;
+    margin-top: 50px;
+  }
+  #contact-us .follow-us ul ul.sub-list li svg {
+    width: 25px;
+    height: 25px;
+  }
+
+  #location .map iframe {
+    height: 270px;
+  }
+}

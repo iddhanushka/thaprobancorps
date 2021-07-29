@@ -251,3 +251,56 @@ footer {
     margin-top: 20px;
   }
 }
+
+@media (min-width: 576px) and (max-width: 767px) {
+  footer {
+    padding: 40px 0 0;
+  }
+
+  footer .company-summer img {
+    max-width: 55%;
+  }
+
+  footer .our-links h1 {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+
+  footer .company-summer {
+    margin-bottom: 20px;
+  }
+
+  footer .company-summer a {
+    margin-top: 10px;
+  }
+
+  footer .products h1 {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  footer .contact h1 {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  footer .our-links ul li:not(:last-child) {
+    margin-bottom: 0px;
+  }
+
+  footer .products ul li:not(:last-child) {
+    margin-bottom: 0px;
+  }
+
+  footer .contact ul li:not(:last-child) {
+    padding-bottom: 5px;
+  }
+
+  footer .contact ul li ul.social-media li {
+    font-size: 18px;
+  }
+
+  footer .powered-by h6 {
+    font-size: 11px;
+  }
+}

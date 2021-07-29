@@ -18,21 +18,21 @@
                                     <h1>Get in touch with us!</h1>
                                     <form>
                                         <div class="form-row">
-                                            <div class="form-group col-md-6">
+                                            <div class="form-group col-md-6 col-sm-6">
                                                 <label for="fName">First name</label>
                                                 <input type="text" class="form-control" id="fName">
                                             </div>
-                                            <div class="form-group col-md-6">
+                                            <div class="form-group col-md-6 col-sm-6">
                                                 <label for="lName">Last name</label>
                                                 <input type="text" class="form-control" id="lName">
                                             </div>
                                         </div>
                                         <div class="form-row">
-                                            <div class="form-group col-md-6">
+                                            <div class="form-group col-md-6 col-sm-6">
                                                 <label for="email">Email</label>
                                                 <input type="text" class="form-control" id="email">
                                             </div>
-                                            <div class="form-group col-md-6">
+                                            <div class="form-group col-md-6 col-sm-6">
                                                 <label for="contact">Contact number</label>
                                                 <input type="text" class="form-control" id="contact">
                                             </div>
