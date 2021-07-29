@@ -71,3 +71,21 @@
     padding: 40px 0;
   }
 }
+
+@media (max-width: 575px) {
+  #p-and-p {
+    padding: 35px 0;
+  }
+  #p-and-p .privacy h1 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  #p-and-p .privacy p {
+    line-height: 25px;
+    font-size: 14px;
+  }
+  #p-and-p .privacy li {
+    line-height: 25px;
+    font-size: 14px;
+  }
+}

@@ -104,9 +104,6 @@ header {
     max-width: 40%;
   }
   header .company-info {
-    // width: auto;
-    // position: absolute;
-    // left: 0;
     display: none;
   }
   header .main-menu-bar button {
@@ -157,5 +154,70 @@ header {
 
   header .main-menu-bar .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.7)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+}
+
+@media (max-width: 575px) {
+  header .company-brand img {
+    max-width: 45%;
+  }
+  header .company-info {
+    display: none;
+  }
+  header .main-menu-bar button {
+    width: auto;
+    margin-right: 15px;
+  }
+  header .main-menu-bar button {
+    float: right;
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.7) !important;
+  }
+
+  header .main-menu-bar {
+    position: relative;
+  }
+
+  header .main-menu-bar .navbar-collapse {
+    position: absolute;
+    width: 100%;
+  }
+
+  header .main-menu-bar .navbar-nav {
+    position: absolute;
+    width: 100%;
+    z-index: 1200;
+    top: 53px;
+    background: rgba(51, 51, 51, 0.8);
+    padding: 0 20px 20px 20px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+  header .main-menu-bar ul a {
+    color: #fc0 !important;
+  }
+
+  header .main-menu-bar ul li {
+    font-size: 15px;
+  }
+
+  header .main-menu {
+    position: absolute;
+  }
+
+  header .main-menu-bar .navbar-toggler-icon {
+    width: 0.8em;
+    height: 0.8em;
+  }
+
+  header .main-menu-bar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.7)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+
+  header .main-menu-bar .navbar-toggler {
+    padding: 0.2rem 0.7rem;
+    font-size: 1.5rem;
+    line-height: 0.8;
   }
 }

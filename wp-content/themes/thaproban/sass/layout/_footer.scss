@@ -304,3 +304,80 @@ footer {
     font-size: 11px;
   }
 }
+
+@media (max-width: 575px) {
+  footer {
+    padding: 35px 0 0;
+  }
+
+  footer .company-summer img {
+    max-width: 35%;
+  }
+
+  footer .company-summer p {
+    font-size: 14px;
+  }
+
+  footer .our-links h1 {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+
+  footer .company-summer {
+    margin-bottom: 20px;
+  }
+
+  footer .company-summer a {
+    margin-top: 10px;
+  }
+
+  footer .products h1 {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+
+  footer .contact h1 {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+
+  footer .our-links ul li:not(:last-child) {
+    margin-bottom: 0px;
+  }
+
+  footer .products ul li:not(:last-child) {
+    margin-bottom: 0px;
+  }
+
+  footer .contact ul li:not(:last-child) {
+    padding-bottom: 5px;
+  }
+
+  footer .contact ul li ul.social-media li {
+    font-size: 16px;
+  }
+
+  footer .powered-by h6 {
+    font-size: 11px;
+  }
+
+  footer .our-links ul li {
+    font-size: 14px;
+  }
+
+  footer .products ul li {
+    font-size: 14px;
+  }
+
+  footer .contact ul li {
+    font-size: 14px;
+  }
+
+  footer .company-summer a {
+    font-size: 14px;
+  }
+
+  footer .powered-by {
+    margin-top: 15px;
+  }
+}

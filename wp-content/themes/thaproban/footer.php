@@ -18,7 +18,7 @@ $container = get_theme_mod( 'thaproband_container_type' );
 			<div class="row">
 				<div class="col-lg-3 col-md-6 col-sm-6">
 					<div class="company-summer">
-						<img src="<?php echo get_template_directory_uri(); ?>/img/Thaproban-DC.png" alt="Thaproban-DC">
+						<img src="<?php echo get_template_directory_uri(); ?>/img/thaprobancorps.png" alt="thaprobancorps">
 						<p>Thaproban Corps. Security & Investigations (Pvt) Ltd. is a leading private security firm based in Sri Lanka.</p>
 						<!-- <p>Lorem ipsum dolor sit amet</p> -->
 						<a href="<?php echo get_site_url() ?>/about-us">about us</a>

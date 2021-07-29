@@ -97,7 +97,7 @@
             img {
               border: 1px solid #fc0;
               padding: 1px;
-              object-fit: cover;
+              object-fit: cover !important;
             }
           }
         }
@@ -163,5 +163,30 @@
   #contact-us .contact-form h1 {
     font-size: 20px;
     margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 575px) {
+  #posts {
+    padding: 20px 0;
+  }
+  #posts .post-card .card-content h1 {
+    font-size: 15px;
+  }
+
+  #posts .recent-posts-widget-with-thumbnails .rpwwt-widget h3.widget-title {
+    font-size: 16px;
+  }
+
+  #posts .post-card .card-img img {
+    height: 180px;
+  }
+
+  #posts .post-card .card-content p {
+    font-size: 14px;
+  }
+
+  #posts .post-pagination-links {
+    margin-top: 20px;
   }
 }

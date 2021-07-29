@@ -943,3 +943,265 @@
     padding: 40px 0px;
   }
 }
+
+@media (max-width: 575px) {
+  #top-cover .homeSlider .slider1 {
+    background-position-x: -100px;
+  }
+
+  #top-cover .homeSlider .slider2 {
+    background-position-x: -362px;
+  }
+
+  #top-cover .homeSlider .slider3 {
+    background-position-x: -307px;
+  }
+
+  #top-cover .homeSlider .slider .slider-content h1 {
+    font-size: 23px;
+    letter-spacing: 5px;
+  }
+
+  #top-cover .homeSlider .slider .slider-content p {
+    font-size: 16px;
+    max-width: 70%;
+  }
+
+  #best-security-sl {
+    padding: 35px 0;
+  }
+
+  #best-security-sl .best-security h1 {
+    font-size: 18px;
+  }
+
+  #best-security-sl .best-security p {
+    font-size: 15px;
+  }
+
+  #best-security-sl .security-services img {
+    max-width: 20%;
+  }
+
+  #best-security-sl .security-services h2 {
+    font-size: 16px;
+  }
+
+  #best-security-sl .security-services p {
+    font-size: 14px;
+    padding: 0 15px;
+  }
+
+  #best-security-sl .security-services:not(.investigations) {
+    margin-bottom: 50px;
+  }
+
+  #best-security-sl a {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+
+  #welcome-thaproband {
+    padding: 35px 0;
+  }
+
+  #welcome-thaproband .welcome h1 {
+    font-size: 18px;
+  }
+
+  #welcome-thaproband .welcome p {
+    font-size: 14px;
+  }
+
+  #welcome-thaproband .welcome h1 {
+    font-size: 18px;
+    color: #fc0;
+  }
+
+  #welcome-thaproband {
+    padding: 40px 0;
+    background: url("../img/security-guard.png") rgba(0, 0, 0, 0.7);
+    background-repeat: no-repeat;
+    background-position-x: 90%;
+    background-size: 35%;
+    background-position-y: bottom;
+    background-blend-mode: overlay;
+  }
+
+  #welcome-thaproband .welcome p {
+    color: #fff;
+  }
+
+  #welcome-thaproband .welcome a {
+    color: #fff;
+    font-size: 14px;
+  }
+
+  #we-are-for-you {
+    padding: 35px 0px;
+  }
+
+  #we-are-for-you .our-best h1 {
+    font-size: 18px;
+  }
+
+  #we-are-for-you .our-best p {
+    font-size: 15px;
+    margin-bottom: 40px;
+  }
+
+  #we-are-for-you .reasons ul li .title h2 {
+    font-size: 16px;
+  }
+
+  #we-are-for-you .reasons ul li:not(:last-child) {
+    font-size: 25px;
+  }
+
+  #we-are-for-you .reasons ul li .content p {
+    font-size: 14px;
+  }
+
+  #we-are-for-you .info p {
+    font-size: 14px;
+  }
+
+  #quick-contact .contact-nbr h1 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    text-align: center;
+  }
+
+  #quick-contact .contact-nbr a {
+    font-size: 25px;
+    display: block;
+    text-align: center;
+  }
+
+  #quick-contact .getin-btn {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  #quick-contact .getin-btn a {
+    padding: 6px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    display: inline-block;
+  }
+
+  #industry-updates {
+    padding: 40px 0px;
+  }
+
+  #industry-updates .article-card {
+    margin-bottom: 30px;
+  }
+
+  #industry-updates .article-card .card-content h1 {
+    font-size: 15px;
+  }
+
+  #industry-updates .article-card .card-content span {
+    font-size: 11px;
+  }
+
+  #security-team {
+    height: 370px;
+  }
+  #security-team .cover-img {
+    height: 370px;
+  }
+
+  #security-team .cover-img img {
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.5);
+  }
+
+  #security-team .team-info .best-security-team {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+  #security-team .team-info .best-security-team h1 {
+    font-size: 18px;
+    padding-right: 0;
+    text-align: center;
+  }
+
+  #security-team .team-info .best-security-team p {
+    font-size: 14px;
+    text-align: center;
+    padding-right: 0;
+  }
+
+  #security-team .team-info .best-security-team a {
+    font-size: 14px;
+    margin: auto;
+    margin-top: 30px;
+  }
+
+  #happy-customer {
+    padding: 35px 0 50px;
+  }
+
+  #happy-customer .reviews h1 {
+    font-size: 18px;
+    margin-bottom: 50px;
+  }
+
+  #happy-customer .reviews .customer-img img {
+    max-width: 20%;
+  }
+
+  #happy-customer .reviews .customer-img {
+    border-right: none;
+    margin-bottom: 30px;
+  }
+
+  #happy-customer .reviews .carousel-indicators {
+    display: inline-flex !important;
+    margin-left: 15%;
+    top: unset;
+    transform: unset;
+    bottom: -40px;
+  }
+
+  #happy-customer .reviews .customer-note {
+    text-align: center;
+  }
+
+  #happy-customer .reviews .customer-note ul {
+    display: inline-flex;
+  }
+  #happy-customer .reviews .customer-note h4 {
+    font-size: 16px;
+  }
+
+  #happy-customer .reviews .customer-note ul li {
+    font-size: 20px;
+  }
+
+  #happy-customer .reviews .customer-img h2 {
+    font-size: 15px;
+  }
+
+  #happy-customer .reviews .customer-note p {
+    font-size: 14px;
+    padding: 0 15px;
+  }
+
+  #happy-customer .reviews .carousel-indicators li {
+    width: 7px !important;
+    height: 7px !important;
+  }
+
+  #get-in-touch {
+    padding: 35px 0px;
+  }
+
+  #get-in-touch .contact-nbr h1 {
+    font-size: 18px;
+  }
+}

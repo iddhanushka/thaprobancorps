@@ -94,3 +94,29 @@
     margin-bottom: 10px;
   }
 }
+
+@media (max-width: 575px) {
+  #services {
+    padding: 35px 0;
+  }
+  #services .services-type .nav a {
+    font-size: 14px;
+  }
+  #services .services-type .nav {
+    margin-bottom: 30px;
+  }
+  #services .services-type .tab-content h1 {
+    font-size: 15px;
+    margin-bottom: 15px;
+  }
+  #services .services-type .tab-content p {
+    line-height: 25px;
+    font-size: 14px;
+  }
+  #services .services-type .tab-content .category:not(:last-child) {
+    margin: 30px 0;
+  }
+  #services .services-type .tab-content ul li {
+    font-size: 14px;
+  }
+}

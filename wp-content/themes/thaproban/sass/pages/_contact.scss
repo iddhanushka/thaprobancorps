@@ -148,6 +148,13 @@
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
+  #contact-us {
+    padding: 40px 0;
+  }
+  #contact-us .contact-form h1 {
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
   #contact-us .contact-form form button {
     font-size: 14px;
     padding: 4px 21px;
@@ -167,5 +174,52 @@
 
   #location .map iframe {
     height: 270px;
+  }
+}
+
+@media (max-width: 575px) {
+  #contact-us {
+    padding: 35px 0;
+  }
+  #contact-us .contact-form h1 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  #contact-us .contact-form form button {
+    font-size: 14px;
+    padding: 3px 20px;
+  }
+  #contact-us .follow-us h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  #contact-us .follow-us {
+    padding-left: 0;
+    margin-top: 50px;
+  }
+  #contact-us .follow-us ul ul.sub-list li svg {
+    width: 23px;
+    height: 23px;
+  }
+  #location .map iframe {
+    height: 220px;
+  }
+  #contact-us .contact-form form label {
+    font-size: 14px;
+  }
+  #contact-us .contact-form form input {
+    height: calc(0.5em + 0.75rem + 2px);
+  }
+
+  #contact-us .contact-form form textarea {
+    height: calc(2em + 0.75rem + 2px);
+  }
+
+  #contact-us .follow-us ul ul.sub-list li address {
+    line-height: 25px;
+    font-size: 14px;
+  }
+  #contact-us .follow-us ul ul.sub-list li a {
+    font-size: 14px;
   }
 }

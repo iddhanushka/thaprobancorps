@@ -188,3 +188,46 @@
     padding-bottom: 40px;
   }
 }
+
+@media (max-width: 575px) {
+  #about-us {
+    padding: 35px 0;
+  }
+  #about-us .about h1 {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  #about-us .about p {
+    text-align: justify;
+    font-size: 14px;
+    line-height: 25px;
+  }
+  #about-us .goal .vision {
+    margin-bottom: 15px;
+  }
+  #about-us .goal h2 {
+    font-size: 18px;
+  }
+  #ceo hr {
+    display: none;
+  }
+  #ceo .ceo-word img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 15px;
+  }
+  #ceo .ceo-word p {
+    font-size: 14px;
+    max-width: 90%;
+    margin: auto;
+  }
+  #ceo {
+    padding-bottom: 40px;
+  }
+  #ceo .ceo-word span {
+    font-size: 14px;
+  }
+  #ceo .ceo-word .blockquote-footer {
+    font-size: 11px;
+  }
+}

@@ -18,14 +18,14 @@
                             
                             <div class="features" data-aos="fade-up"  data-aos-duration="1500">
                                 <div class="row">
-                                    <div class="col-lg-8 col-md-8 order-sm-2">
+                                    <div class="col-lg-8 col-md-8 order-lg-1 order-sm-2 order-2">
                                         <div class="feature-content">
                                             <h1><i class="fas fa-user-shield"></i> More than a man in a uniform</h1>
                                             <p>An effective security officer is far more than somebody who stands outside your front door or strolls around your campus in uniform, trying not to fall asleep.</p>
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-4 col-md-4 order-sm-1 align-self-center">
+                                    <div class="col-lg-4 col-md-4 order-lg-2 order-sm-1 align-self-center">
                                         <div class="feature-img">
                                             <img src="<?php echo get_template_directory_uri(); ?>/img/crew1.png" alt="">
                                         </div>
@@ -52,14 +52,14 @@
                             
                             <div class="features" data-aos="fade-up"  data-aos-duration="1500">
                                 <div class="row">
-                                    <div class="col-lg-8 col-md-8 order-sm-2">
+                                    <div class="col-lg-8 col-md-8 order-lg-1 order-sm-2 order-2">
                                         <div class="feature-content">
                                             <h1><i class="fas fa-user-shield"></i> Public Relations is a big part of security</h1>
                                             <p>Yes, greeting people as they come and go from your property provides a valuable public relations service. A simple “Good morning” or “Good afternoon” is appreciated by your customers and clients. But more importantly, it lets them know they’ve been noticed and they are being watched over. This simple act gives your visitors a sense of confidence and security. And it deters criminal activity before it begins. But that’s just the start.</p>
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-4 col-md-4 order-sm-1 align-self-center">
+                                    <div class="col-lg-4 col-md-4 order-lg-2 order-sm-1 align-self-center">
                                         <div class="feature-img">
                                             <img src="<?php echo get_template_directory_uri(); ?>/img/crew3.png" alt="">
                                         </div>
@@ -86,14 +86,14 @@
 
                             <div class="features" data-aos="fade-up"  data-aos-duration="1500">
                                 <div class="row">
-                                    <div class="col-lg-8 col-md-8 order-sm-2">
+                                    <div class="col-lg-8 col-md-8 order-lg-1 order-sm-2 order-2">
                                         <div class="feature-content">
                                             <h1><i class="fas fa-user-shield"></i> Mystery officer inspections</h1>
                                             <p>Thaproban Corps. security guards are extremely committed to provide you with the best in security services. To ensure guards are always performing at an optimum level of skill and professionalism, they undergo regular reviews. On top of monthly training exercises which include workshops on negotiation skills, self-defence, and fitness, security inspectors anonymously observe guards on duty to ensure their security service is second-to-none.</p>
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-4 col-md-4 order-sm-1 align-self-center">
+                                    <div class="col-lg-4 col-md-4 order-lg-2 order-sm-1 align-self-center">
                                         <div class="feature-img">
                                             <img src="<?php echo get_template_directory_uri(); ?>/img/crew5.png" alt="">
                                         </div>
