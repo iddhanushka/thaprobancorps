@@ -2,6 +2,7 @@
   overflow-x: hidden;
 
   .homeSlider {
+    margin-bottom: 0;
     .slider {
       width: 100%;
       height: 90vh;
@@ -40,6 +41,29 @@
 
     .slider3 {
       background: url("../img/slider3.jpg") rgba(0, 0, 0, 0.5);
+    }
+
+    .slick-dots {
+      bottom: 30px;
+
+      .slick-active {
+        button {
+          &::before {
+            color: #fc0;
+          }
+        }
+      }
+
+      li {
+        button {
+          &::before {
+            font-size: 50px;
+            opacity: 0.35;
+            color: #fff;
+            content: "-";
+          }
+        }
+      }
     }
   }
 }
@@ -140,7 +164,6 @@
 #we-are-for-you {
   padding: 90px 0px;
   background: #ffcc00;
-  // background: url('../img/we-are-cover.jpg');
   background-size: cover;
 
   .our-best {
@@ -967,6 +990,10 @@
     max-width: 70%;
   }
 
+  #top-cover .homeSlider .slick-dots {
+    bottom: 15px;
+  }
+
   #best-security-sl {
     padding: 35px 0;
   }
@@ -1096,6 +1123,10 @@
 
   #industry-updates .article-card {
     margin-bottom: 30px;
+  }
+
+  #industry-updates .article-card .card-img img {
+    height: 200px;
   }
 
   #industry-updates .article-card .card-content h1 {

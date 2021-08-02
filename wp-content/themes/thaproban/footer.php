@@ -42,9 +42,10 @@ $container = get_theme_mod( 'thaproband_container_type' );
 						<h1>Our services</h1>
 						<ul>
 							<li><a href="<?php echo get_site_url(); ?>/services">Industrial security</a></li>
-							<li><a href="<?php echo get_site_url(); ?>/services">Body guards</a></li>
-							<li><a href="<?php echo get_site_url(); ?>/services">Investigations & audits</a></li>
-							<li><a href="<?php echo get_site_url(); ?>/services">CCTV cameras</a></li>
+							<li><a href="<?php echo get_site_url(); ?>/services?service=traditional">Traditional & Ceremonial</a></li>
+							<li><a href="<?php echo get_site_url(); ?>/services?service=body_guard">Body guards</a></li>
+							<li><a href="<?php echo get_site_url(); ?>/services?service=investigations">Investigations & audits</a></li>
+							<li><a href="<?php echo get_site_url(); ?>/services??service=cctv">CCTV cameras</a></li>
 						</ul>
 					</div>
 				</div>
@@ -107,6 +108,26 @@ $container = get_theme_mod( 'thaproband_container_type' );
 				pauseOnHover: false
 			});
 		// });
+
+		// Services footer navigations
+		var urlParams = new URLSearchParams(window.location.search);
+
+		jQuery(document).ready(function(){
+			if(urlParams.has('service')) {
+				if(urlParams.get('service') === 'traditional') {
+						jQuery('#v-pills-traditional-tab').tab('show');
+				}
+				if(urlParams.get('service') === 'body_guard') {
+						jQuery('#v-pills-body_guards-tab').tab('show');
+				}
+				if(urlParams.get('service') === 'investigations') {
+						jQuery('#v-pills-investigations-tab').tab('show');
+				}
+				if(urlParams.get('service') === 'cctv') {
+						jQuery('#v-pills-cctv-tab').tab('show');
+				}
+			}
+		});
 
 	</script>
 

@@ -16,7 +16,8 @@
                             <div class="col-lg-7 col-md-12">
                                 <div class="contact-form" data-aos="fade-right" data-aos-duration="1500">
                                     <h1>Get in touch with us!</h1>
-                                    <form>
+                                    <?php echo do_shortcode('[contact-form-7 id="55" title="Contact Form - Thaproban"]'); ?>
+                                    <!-- <form>
                                         <div class="form-row">
                                             <div class="form-group col-md-6 col-sm-6">
                                                 <label for="fName">First name</label>
@@ -42,7 +43,7 @@
                                             <textarea class="form-control" id="message" rows="3"></textarea>
                                         </div>
                                         <button type="submit" class="btn btn-secondary">Send</button>
-                                    </form>
+                                    </form> -->
                                 </div>
                             </div>
 
