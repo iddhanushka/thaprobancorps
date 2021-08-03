@@ -42,6 +42,7 @@
         padding: 6px 30px;
         margin-top: 15px;
         border-radius: 0.25rem;
+        height: auto;
 
         &:focus {
           box-shadow: unset;
@@ -196,7 +197,7 @@
   }
   #contact-us .follow-us {
     padding-left: 0;
-    margin-top: 50px;
+    margin-top: 40px;
   }
   #contact-us .follow-us ul ul.sub-list li svg {
     width: 23px;

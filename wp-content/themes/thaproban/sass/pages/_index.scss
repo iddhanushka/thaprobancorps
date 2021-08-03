@@ -1,5 +1,6 @@
 #top-cover {
   overflow-x: hidden;
+  overflow-y: hidden;
 
   .homeSlider {
     margin-bottom: 0;
@@ -968,17 +969,27 @@
 }
 
 @media (max-width: 575px) {
-  #top-cover .homeSlider .slider1 {
-    background-position-x: -100px;
+  #top-cover .homeSlider .slider {
+    height: 40vh;
+    background-position-x: center;
   }
 
-  #top-cover .homeSlider .slider2 {
-    background-position-x: -362px;
+  #top-cover .homeSlider .slider .slider-content {
+    top: 20vh;
+    transform: translateY(-50%);
   }
 
-  #top-cover .homeSlider .slider3 {
-    background-position-x: -307px;
-  }
+  // #top-cover .homeSlider .slider1 {
+  //   background-position-x: -100px;
+  // }
+
+  // #top-cover .homeSlider .slider2 {
+  //   background-position-x: -362px;
+  // }
+
+  // #top-cover .homeSlider .slider3 {
+  //   background-position-x: -307px;
+  // }
 
   #top-cover .homeSlider .slider .slider-content h1 {
     font-size: 23px;
