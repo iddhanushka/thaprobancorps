@@ -7,7 +7,7 @@
 ?>
 
 
-<section id="our-crew">
+<section id="our-crew" class="section-t-padding">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">

@@ -19,9 +19,9 @@ $container = get_theme_mod( 'thaproband_container_type' );
 				<div class="col-lg-3 col-md-6 col-sm-6">
 					<div class="company-summer">
 						<img src="<?php echo get_template_directory_uri(); ?>/img/thaprobancorps.png" alt="thaprobancorps">
-						<p>Thaproban Corps. Security & Investigations (Pvt) Ltd. is a leading private security firm based in Sri Lanka.</p>
+						<p>Thaproban Corps. Security & Investigations (Pvt) Ltd. is a leading private security firm based in Rajagiriya, Sri Lanka.</p>
 						<!-- <p>Lorem ipsum dolor sit amet</p> -->
-						<a href="<?php echo get_site_url() ?>/about-us">about us</a>
+						<a href="<?php echo get_site_url() ?>/about-us">About us</a>
 					</div>
 				</div>
 
@@ -78,7 +78,7 @@ $container = get_theme_mod( 'thaproband_container_type' );
 
 		<div class="powered-by">
 			<div class="container">
-				<h6>&copy; <?php echo date('Y'); ?> <a href="https://www.hexacode.lk" target="blank">Hexacode Solutions&trade; (Pvt) Ltd.</a> All Rights Reserved.</h6>
+				<h6><i class="far fa-copyright"></i> <?php echo date('Y'); ?> <a href="https://www.hexacode.lk" target="blank">Hexacode Solutions&trade; (Pvt) Ltd.</a> All Rights Reserved.</h6>
 			</div>
 		</div>
 

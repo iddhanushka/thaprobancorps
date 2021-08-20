@@ -7,7 +7,7 @@
 ?>
 
 
-<section id="t-and-c">
+<section id="t-and-c" class="section-t-padding">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">

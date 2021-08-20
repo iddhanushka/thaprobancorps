@@ -6,9 +6,7 @@
 
 ?>
 
-<section id="top-cover">
-    <?php // echo do_shortcode('[rev_slider alias="thaproband home cover"]'); ?>
-
+<section id="top-cover" class="section-t-padding-fp">
     <div class="homeSlider">
         <div class="slider1 slider">
             <div class="container">
@@ -137,7 +135,7 @@
                     <div class="col-lg-8">
                         <div class="our-best" data-aos="fade-up"  data-aos-duration="1500">
                             <h1>We Are There For You</h1>
-                            <p>Thaproban DC has expertise and long-term experience in improving and ensuring commercial and industrial workplace security</p>
+                            <p>Our well trained, dedicated and client friendly security staff working around the clock is a friend indeed and a friend in need.</p>
                         </div>
                     </div>
                 </div>
@@ -155,7 +153,7 @@
                                                     </div>
 
                                                     <div class="content">
-                                                        <p>Thaproban DC has expertise and long-term experience in improving and ensuring </p>
+                                                        <p>The Director himself is an ex Air Force commissioned officer with an experience of almost 8 years in the service whose expecting to maintain high standards off the service.</p>
                                                     </div>
                                                 </li>
                                             </ul>
@@ -164,11 +162,11 @@
                                                 <li><i class="far fa-bell"></i></li>
                                                 <li>
                                                     <div class="title">
-                                                        <h2>Where does it come from?</h2>
+                                                        <h2>Why Thaproban Corps.?</h2>
                                                     </div>
 
                                                     <div class="content">
-                                                        <p>Thaproban DC has expertise and long-term experience in improving and ensuring </p>
+                                                        <p>A company with and unblemished profile in the industry over the passed decade.</p>
                                                     </div>
                                                 </li>
                                             </ul>
@@ -177,8 +175,8 @@
 
                                     <div class="col-lg-6 col-md-6 align-self-center">
                                         <div class="info" data-aos="fade-left" data-aos-duration="1500">
-                                            <p>Thaproban DC Security & Investigations (Pvt) Ltd. is a leading private security firm based in Sri Lanka. Our specialties include Commercial</p>
-                                            <p>Industrial Security, Event Security, Mobile Patrols, Residential Security, Body Guards (Close Protection Operations), Cash Guards, Traditional and</p>
+                                            <p>Our service is grounded in our commitment to suit our client’s expectations of quality service.  Every security assignment is treated with a level of focus that is unmatched by the other security organizations.</p>
+                                            <p>With over 10 years of experience in the Sri Lankan private security industry, we have the knowledge and experience required to provide professional security services for our clientele.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -240,7 +238,7 @@
                             <div class="card-content">
                                 <span><i class="far fa-calendar-alt"></i> <?php the_date(); ?></span>
                                 <h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
-                                <p><?php echo wp_trim_words(get_the_content(), '20'); ?></p>
+                                <p><?php echo wp_trim_words(get_the_content(), '22'); ?></p>
                             </div>
                         </div>
                     </div>
@@ -266,9 +264,13 @@
                         <div class="col-lg-6 offset-lg-6">
                             <div class="best-security-team" data-aos="fade-left" data-aos-duration="2000">
                                 <h1>Our Best Leading Security Team</h1>
-                                <p>Thaproban DC Security & Investigations (Pvt) Ltd. is a leading private security firm based in Sri Lanka. Our specialties include Commercial Industrial Security, Event Security, Mobile Patrols,</p>
-                                <p>Residential Security, Body Guards (Close Protection Operations), Cash Guards, Traditional and Ceremonial Guards, Security Audits, Private Investigations, Interrogation Services and CCTV Cameras.</p>
-                                <a href="<?php echo get_site_url(); ?>/contact">Join Us</a>
+                                <p><strong>Be Bold:</strong> be proactive, make decisions, take responsibility, try new things.</p>
+                                <p><strong>Be Curious:</strong> ask questions, do some research, learn new techniques, study our clients and their industries.</p>
+                                <p><strong>Be Together:</strong> play an active role in the team, support your colleagues, collaborate, have fun.</p>
+                                <!-- <p>Be Connected:  meet people, make contacts, build relationships, see the bigger picture.</p> -->
+                                <p><strong>Be Better:</strong> look for ways to improve, challenge yourself, never stop learning, strive to be the best.</p>
+                                <p>Building, developing, training, retaining and engaging the Rostrum team is a daily commitment. We work hard every day to make sure that our people are supported and empowered to deliver exceptional results for our clients.</p>
+                                <a href="<?php echo get_site_url(); ?>/contact">Join us</a>
                             </div>
                         </div>
                     </div>

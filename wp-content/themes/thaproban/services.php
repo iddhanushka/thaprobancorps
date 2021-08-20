@@ -6,7 +6,7 @@
 
 ?>
 
-<section id="services">
+<section id="services" class="section-t-padding">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -98,6 +98,7 @@
 
                                 <div class="tab-pane fade" id="v-pills-traditional" role="tabpanel" aria-labelledby="v-pills-traditional-tab">
                                     <div class="traditional">
+                                        <h1>Traditional & Ceremonial Guards</h1>
                                         <p>Thaproban Corps. provides traditional and ceremonial security guards for functions such as weddings, funerals, birthday parties and events such as auth of office, house warming, recreational actions. Further, we offer an added beauty to your hotel, theme park or any other creative business by providing traditional and ceremonial guards.</p>
                                     </div>    
                                 </div>

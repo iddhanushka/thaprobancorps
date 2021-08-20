@@ -4,15 +4,22 @@ body {
   overflow-x: hidden;
 }
 
+#mysticky-nav.wrapfixed .myfixed {
+  border-bottom: 5px solid #663300;
+}
+
 header {
   background: #ffcc00;
   padding: 5px 0;
   border-bottom: 5px solid #663300;
+  // position: fixed;
+  // z-index: 1;
+  width: 100%;
 
   .company-brand {
     img {
       width: 100%;
-      max-width: 70%;
+      max-width: 92%;
     }
   }
 
@@ -55,8 +62,8 @@ header {
     ul {
       li {
         text-transform: capitalize;
-        font-weight: 600;
-        font-size: 17px;
+        font-weight: 500;
+        font-size: 15px;
       }
 
       a {

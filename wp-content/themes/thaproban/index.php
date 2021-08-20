@@ -18,7 +18,7 @@ get_header();
 
 ?>
 
-	<section id="posts">
+	<section id="posts" class="section-t-padding">
 		<div class="container">
 			<div class="row">
 
