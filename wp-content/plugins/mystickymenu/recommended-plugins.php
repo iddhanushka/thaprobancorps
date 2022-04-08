@@ -331,7 +331,7 @@ if ( $data && ! is_wp_error( $data ) ) {
 					<div class="name column-name">
 						<h3>
 							<a href="<?php echo esc_url( $details_link ); ?>" class="thickbox open-plugin-details-modal">
-							<?php echo $title; ?>
+							<?php echo esc_html($title); ?>
 							<img src="<?php echo esc_attr( $plugin_icon_url ); ?>" class="plugin-icon" alt="" />
 							</a>
 						</h3>
@@ -344,7 +344,7 @@ if ( $data && ! is_wp_error( $data ) ) {
 						?>
 					</div>
 					<div class="desc column-description">
-						<p><?php echo $description; ?></p>
+						<p><?php echo esc_html($description); ?></p>
 						<p class="authors"><?php echo $author; ?></p>
 					</div>
 				</div>

@@ -193,7 +193,7 @@ class myStickymenu_review_box {
             }
         </style>
         <div class="notice notice-info premio-notice <?php echo esc_attr($this->plugin_slug) ?>-premio-review-box <?php echo esc_attr($this->plugin_slug) ?>-premio-review-box">
-            <div class="review-box-default" id="default-review-box-<?php echo $this->plugin_slug ?>">
+            <div class="review-box-default" id="default-review-box-<?php echo esc_attr($this->plugin_slug); ?>">
                 <p>
                     Hi there, it seems like <b><?php echo esc_attr($this->plugin_name) ?></b> is bringing you some value, and that's pretty awesome! Can you please show us some love and rate <?php echo esc_attr($this->plugin_name) ?> on WordPress? It'll only take 2 minutes of your time, and will really help us spread the word
                     - <b>Gal Dubinski</b>, Co-founder <img width="30px" src="<?php echo esc_url(plugin_dir_url(__FILE__)."images/premio-owner.png") ?>" />
@@ -206,8 +206,8 @@ class myStickymenu_review_box {
                     <li><a class="<?php echo esc_attr($this->plugin_slug) ?>-premio-review-box-hide-btn" href="javascript:;">I've already rated you</a></li>
                 </ul>
             </div>
-            <div class="review-thanks-box" id="review-thanks-<?php echo $this->plugin_slug ?>">
-                <button class="<?php echo $this->plugin_slug ?>-close-thanks-btn review-thanks-btn"><span class="dashicons dashicons-no-alt"></span></button>
+            <div class="review-thanks-box" id="review-thanks-<?php echo esc_attr($this->plugin_slug); ?>">
+                <button class="<?php echo esc_attr($this->plugin_slug); ?>-close-thanks-btn review-thanks-btn"><span class="dashicons dashicons-no-alt"></span></button>
 
                 <div class="review-thanks-img">
                     <img width="30px" src="<?php echo esc_url(plugin_dir_url(__FILE__)."/images/thanks.gif") ?>" />
@@ -234,19 +234,19 @@ class myStickymenu_review_box {
         <script>
             jQuery(document).ready(function(){
                 jQuery("body").addClass("has-premio-box");
-                jQuery(document).on("click", ".<?php echo $this->plugin_slug ?>-premio-review-dismiss-btn, .<?php echo $this->plugin_slug ?>-premio-review-box-future-btn", function(){
-                    jQuery(".<?php echo $this->plugin_slug ?>-review-box-popup").show();
+                jQuery(document).on("click", ".<?php echo esc_attr($this->plugin_slug); ?>-premio-review-dismiss-btn, .<?php echo esc_attr($this->plugin_slug); ?>-premio-review-box-future-btn", function(){
+                    jQuery(".<?php echo esc_attr($this->plugin_slug); ?>-review-box-popup").show();
                 });
-                jQuery(document).on("click", ".<?php echo $this->plugin_slug ?>-close-review-box-popup", function(){
-                    jQuery(".<?php echo $this->plugin_slug ?>-review-box-popup").hide();
+                jQuery(document).on("click", ".<?php echo esc_attr($this->plugin_slug); ?>-close-review-box-popup", function(){
+                    jQuery(".<?php echo esc_attr($this->plugin_slug); ?>-review-box-popup").hide();
                 });
-                jQuery(document).on("click", ".<?php echo $this->plugin_slug ?>-close-thanks-btn", function(){
-                    jQuery(".<?php echo $this->plugin_slug ?>-review-box-popup").remove();
-                    jQuery(".<?php echo $this->plugin_slug ?>-premio-review-box").remove();
+                jQuery(document).on("click", ".<?php echo esc_attr($this->plugin_slug); ?>-close-thanks-btn", function(){
+                    jQuery(".<?php echo esc_attr($this->plugin_slug); ?>-review-box-popup").remove();
+                    jQuery(".<?php echo esc_attr($this->plugin_slug); ?>-premio-review-box").remove();
                 });
-                jQuery(document).on("click",".<?php echo $this->plugin_slug ?>-premio-review-box-hide-btn",function(){
-                    jQuery("#default-review-box-<?php echo $this->plugin_slug ?>").hide();
-                    jQuery("#review-thanks-<?php echo $this->plugin_slug ?>").show();
+                jQuery(document).on("click",".<?php echo esc_attr($this->plugin_slug); ?>-premio-review-box-hide-btn",function(){
+                    jQuery("#default-review-box-<?php echo esc_attr($this->plugin_slug); ?>").hide();
+                    jQuery("#review-thanks-<?php echo esc_attr($this->plugin_slug); ?>").show();
                     jQuery.ajax({
                         url: "<?php echo admin_url("admin-ajax.php") ?>",
                         data: "action=<?php echo esc_attr($this->plugin_slug) ?>_review_box&days=-1&nonce=<?php echo esc_attr(wp_create_nonce($this->plugin_slug."_review_box")) ?>",
@@ -256,18 +256,18 @@ class myStickymenu_review_box {
                         }
                     });
                 });
-                jQuery(document).on("click", ".<?php echo $this->plugin_slug ?>-review-box-options a", function(){
+                jQuery(document).on("click", ".<?php echo esc_attr($this->plugin_slug); ?>-review-box-options a", function(){
                     var dataDays = jQuery(this).attr("data-days");
-                    jQuery(".<?php echo $this->plugin_slug ?>-review-box-popup").remove();
-                    jQuery(".<?php echo $this->plugin_slug ?>-premio-review-box").remove();
+                    jQuery(".<?php echo esc_attr($this->plugin_slug); ?>-review-box-popup").remove();
+                    jQuery(".<?php echo esc_attr($this->plugin_slug); ?>-premio-review-box").remove();
                     jQuery("body").removeClass("has-premio-box");
                     jQuery.ajax({
                         url: "<?php echo admin_url("admin-ajax.php") ?>",
-                        data: "action=<?php echo esc_attr($this->plugin_slug) ?>_review_box&days="+dataDays+"&nonce=<?php echo esc_attr(wp_create_nonce($this->plugin_slug."_review_box")) ?>",
+                        data: "action=<?php echo esc_attr($this->plugin_slug); ?>_review_box&days="+dataDays+"&nonce=<?php echo esc_attr(wp_create_nonce($this->plugin_slug."_review_box")) ?>",
                         type: "post",
                         success: function() {
-                            jQuery(".<?php echo $this->plugin_slug ?>-review-box-popup").remove();
-                            jQuery(".<?php echo $this->plugin_slug ?>-premio-review-box").remove();
+                            jQuery(".<?php echo esc_attr($this->plugin_slug); ?>-review-box-popup").remove();
+                            jQuery(".<?php echo esc_attr($this->plugin_slug); ?>-premio-review-box").remove();
                         }
                     });
                 });

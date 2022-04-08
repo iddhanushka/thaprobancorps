@@ -1,5 +1,7 @@
 # Begin GzipofBreezeWPCache
-SetEnv BREEZE_GZIP_ON 1
+<IfModule mod_env.c>
+    SetEnv BREEZE_GZIP_ON 1
+</IfModule>
 <IfModule mod_deflate.c>
 	AddType x-font/woff .woff
 	AddOutputFilterByType DEFLATE text/plain
@@ -35,7 +37,9 @@ SetEnv BREEZE_GZIP_ON 1
 </IfModule>
 # End GzipofBreezeWPCache
 #Expires headers configuration added by BREEZE WP CACHE plugin
-SetEnv BREEZE_BROWSER_CACHE_ON 1
+<IfModule mod_env.c>
+   SetEnv BREEZE_BROWSER_CACHE_ON 1
+</IfModule>
 <IfModule mod_expires.c>
    ExpiresActive On
    ExpiresDefault "access plus 1 month"

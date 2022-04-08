@@ -1,9 +1,9 @@
 ===Floating Notification Bar, Sticky Menu on Scroll, and Sticky Header for Any Theme - myStickymenu===
 Contributors: tomeraharon, galdub, premio
-Tags:floating bar, notification bar, menu, header, sticky menu, sticky header, floating menu, floating navigation menu, navigation menu, navigation, sticky navigation menu, welcome bar, hello bar, top bar, sticky bar
+Tags:floating bar, notification bar, menu, header, countdown, sticky menu, sticky header, floating menu, navigation menu, navigation, welcome bar, hello bar, top bar, sticky bar
 Requires at least: 3.5.1
-Tested up to: 5.8
-Stable tag: 2.5.6
+Tested up to: 5.9
+Stable tag: 2.5.8
 License: GPLv2 or later
 
 Create a beautiful welcome notification bar. This sticky menu plugin will also make your menu or header stick to the top of page, when scrolled down and up.
@@ -23,18 +23,19 @@ With more than 80,000+ active installs and around 100 five-stars reviews, you ca
 
 = BENEFITS =
 * Improve user experience by letting your visitors access the navigation menu and navigate to the pages they want when they want to.
-* Make your website look more modern with sticky menu on desktop and mobile.
-* Increase number of pageviews and visitors' time on website
-* Create your own floating Welcome Bar and let your visitors know about your latest deals, announcements or any other important information
+* Make your website look more modern with the sticky menu on desktop and mobile.
+* Increase number of pageviews and visitors' time on your website
+* Create your own floating Welcome Bar and let your visitors know about your latest deals, announcements, or any other important information
+* Our MSM dashboard makes it easy for you to manage your top bars and sticky menus in one place!
 
-The sticky header function is localized (multi language support) and responsive (as far as your theme is). Also there is possibility to add custom css code which make this plugin very flexible, customizable and user friendly. You can also use the notification bar in any languauge.
+The sticky header function is localized (multi-language support) and responsive (as far as your theme is). Also, there is the possibility to add custom CSS code which makes this plugin very flexible, customizable, and user-friendly. You can also use the notification bar in any language.
 
-My Sticky Menu plugin is originally designed for Twenty Thirteen template but should work on any theme, like: OceanWP, Nirvana Template, Travelify, Twenty Sixteen, Twenty Ten, Twenty Eleven, Max Magazine, Graduate, Lawyer theme, Spacious, Suits and more.
+My Sticky Menu plugin is originally designed for Twenty Thirteen template but should work on any theme, like OceanWP, Nirvana Template, Travelify, Twenty Sixteen, Twenty Ten, Twenty Eleven, Max Magazine, Graduate, Lawyer theme, Spacious, Suits, and more.
 
-My Sticky Menu is tested and compatible with Elementor website builder, Divi, WPBakery, Gutenberg, Visual composer, Beaver and other WordPress website builders.
+My Sticky Menu is tested and compatible with Elementor website builder, Divi, WPBakery, Gutenberg, Visual composer, Beaver, and other WordPress website builders.
 
 = WITH WELCOME BAR FEATURES YOU CAN: =
-* Display your floating bar at top position
+* Display your floating bar at the top position
 * When the user clicks on the welcome bar button you can close the bar, redirect to another URL, or launch a <a href="https://www.poptin.com/?utm_source=msm" target="_blank" title="Poptin pop up">Poptin pop up</a>
 * Change the background and button colors for your hello bar
 * Change display frequency after submission - show the announcement bar on every page, once a visit, or don't show the announcement bar after it's submitted
@@ -49,7 +50,7 @@ My Sticky Menu is tested and compatible with Elementor website builder, Divi, WP
 = WITH MY STICKY MENU YOU CAN: =
 * Show sticky header on scroll down/up
 * Fade or slide effect
-* Disable at small screen
+* Disable at a small screen
 * Choose when to make visible on scroll
 * Change the font color when the menu is sticky
 * Change the background color
@@ -57,18 +58,22 @@ My Sticky Menu is tested and compatible with Elementor website builder, Divi, WP
 * Change the sticky transition time
 * Define the z-index of the sticky header
 * Set an entrance effect for your sticky menu
+* Write your notification bar announcements in different languages - we support both LTR and RTL formats
+* NEW! New and improved dashboard - The new MSM dashboard will help you manage your notification bars, top bars, and sticky menus better.
+* NEW! Disable the sticky menu - You now have the option to disable sticky menu features if you want to use only top bars or welcome bars.
 
 = Welcome Bar Pro Features =
-* Multi Welcome Bar - Create a separate notification bar for different pages based on page targeting rules (E.g. seperate notification bar for different languages, different product categories and much more)
-* Display your floating bar at bottom position
+* Multi Welcome Bar - Create a separate notification bar for different pages based on page targeting rules (E.g. separate notification bar for different languages, different product categories, and much more)
+* NEW! Countdown timer ⏳ -  Add a countdown timer in your notification bar for that much-needed sense of urgency. This new countdown timer notifications bar feature can really increase your conversion rate because it creates a sense of scarcity and urgency on your promotions.
+* Display your floating bar at the bottom position
 * Change the height of the sticky notification bar
 * Open redirect link in a new tab
 * Show your notification bar just on mobile or desktop
-* Show your notification bar on scroll or after a few seconds
+* Show your notification bar on a scroll or after a few seconds
 * Set an expiry date for your welcome bar, including settings a timezone
 * Display your floating notification bar on specific pages
-* New: You can set a thank you screen which appears after the button is clicked (can be used for coupons or any other message you want to show your visitors after they click on the button)
-* New: Add a rel Attribute to your notification bar button
+* You can set a thank you screen which appears after the button is clicked (can be used for coupons or any other message you want to show your visitors after they click on the button)
+* Add a rel Attribute to your notification bar button
 
 But wait, there's more 😉
 
@@ -90,14 +95,14 @@ We don’t store any local data about your visitors. Any time your menu or notif
 = Testimonials =
 
 > "Works great.
-One of the key element that i consider when choosing a theme is the sticky menu option. If the theme doesn't have it normally I don't use it. But now that’s not a problem for me anymore."<br><br>
+One of the key elements that I consider when choosing a theme is the sticky menu option. If the theme doesn't have it normally I don't use it. But now that’s not a problem for me anymore."<br><br>
 
 > "This plugin rocks!
 This plugin does exactly what it should. It is simple but powerful. I would suggest to anyone who wants to make their navigation menu sticky! I especially love the hide header on scroll down, show on scroll up feature that is built it. Great work!<br>
 
 
 == Installation ==
-After you activate the plugin, you should be able to create your first notification bar with ease, just customize the apperance and save. If you want to create a sticky menu, in most cases the plugin should be able to find the class/ID for the menu, if not then change sticky class/id to .your_navbar_class or #your_navbar_id - you might need to purge cache after saving.
+After you activate the plugin, you should be able to create your first notification bar with ease, just customize the appearance and save it. If you want to create a sticky menu, in most cases the plugin should be able to find the class/ID for the menu, if not then change sticky class/id to .your_navbar_class or #your_navbar_id - you might need to purge the cache after saving.
 
 For example:
 
@@ -218,35 +223,35 @@ Wrock Metro Theme (entire header)
 == Frequently Asked Questions ==
 
 = How to find Sticky Class, what should I enter here? =
-So this depends on what you want to make sticky and what theme do you use, but for example if you want your menu to be sticky, than you can examine the code (in firefox right click and “View page source”) and find HTML element in which your menu is situated. This element have some class or id, and that’s the Sticky Class we need. If using class than don’t forget to ad dot (.) in front of class name, or hash (#) in front of id. Twenty Thirteen default working class is ".navbar" without of quotes.
+So this depends on what you want to make sticky and what theme do you use, but for example, if you want your menu to be sticky, then you can examine the code (in firefox right click and “View page source”) and find HTML element in which your menu is situated. This element has some class or id, and that’s the Sticky Class we need. If using class then don’t forget to ad dot (.) in front of the class name or hash (#) in front of id. Twenty Thirteen default working class is ".navbar" without of quotes.
 
 = Is there any way to restrict the width to the width of the header, rather than it being full width? =
-Yes, just leave "Sticky Background Color" field blank (clear). Than if needed define custom background color for sticky header inside ".myfixed css class" field using .myfixed class. 
+Yes, just leave the "Sticky Background Color" field blank (clear). Then if needed define a custom background color for a sticky header inside ".myfixed CSS class" field using .myfixed class. 
 
-= Ho do I add small logo to the menu? =
-That will depend on a theme you use, but if initially your menu and logo are in one div than you can use that div class or id in myStickymenu settings. 
+= Ho do I add a small logo to the menu? =
+That will depend on a theme you use, but if initially your menu and logo are in one div then you can use that div class or id in myStickymenu settings. 
 
-If not you can change that in your header template file and add logo and menu divs inside new div with some custom class or id, than use that class or id in myStickymenu settings as a sticky class.
+If not you can change that in your header template file and add logo and menu divs inside new div with some custom class or id, then use that class or id in myStickymenu settings as a sticky class.
 
-In CSS you can style your custom class while not sticky using custom class you added before. Furthermore you can style your menu while sticky using .myfixed class which is added by js to your custom class while sticky is active. 
+In CSS you can style your custom class while not sticky using the custom class you added before. Furthermore, you can style your menu while sticky using .myfixed class which is added by js to your custom class while sticky is active. 
 
-In some cases you can use the whole header div and than just style it different with .myfixed class, hide what you don’t need using CSS display:none; property, and position logo and menu as you like. 
+In some cases, you can use the whole header div and then just style it differently with .myfixed class, hide what you don’t need to use CSS display:none; property, and position logo and menu as you like. 
 
 = Is there a time limit for the free plan? =
 No. you can use the free plan as long as you want.
 
 = Can I use My Sticky Menu plugin on more than 1 domain? =
 There 2 ways to do it:
-1. You can install the free Sticky Menu plugin plugin on any website you want
+1. You can install the free Sticky Menu plugin on any website you want
 2. You can buy the Pro plan that includes licenses for 5 domains, or the Agency plan that includes licenses for 20 domains.
 Check out our <a href="https://premio.io/downloads/mystickymenu/" target="_blank" title="mystickymenu plans page">plans page</a>.
 
-= How long is my paid Sticky Menu plugin plugin license valid for? =
+= How long is my paid Sticky Menu plugin license valid for? =
 Once you purchase any <a href="https://premio.io/downloads/mystickymenu/" target="_blank" title="mystickymenu plans page">paid plan</a> of my sticky menu, you can use it forever. Support and updates are available for 1 year. You can renew your license each year to get another year of support and updates.
 
 = Will Sticky Menu plugin stop working if I don’t renew my license? =
 Of course NOT! 🙂
-Your Sticky Menu plugin plugin and all your settings will continue to work as before; however, you will no longer receive plugin updates including feature additions, improvements, and support.
+Your Sticky Menu plugin and all your settings will continue to work as before; however, you will no longer receive plugin updates including feature additions, improvements, and support.
 
 = How do I activate my pro plan? =
 Just follow our <a href="https://premio.io/wordpress-premio-pro-version-installation-guide/" target="_blank" title="WordPress installation guide">pro installation guide</a>.
@@ -259,15 +264,28 @@ After installing the plugin, you’ll have the option to turn on the welcome bar
 
 == Screenshots ==
 
-1. You can choose your current menu from the dropdown or enter it ID or class manually
-2. Add you custom CSS
-3. This is how myStickymenu will actually look on your site
+1. Check out the welcome bar in action
+2. The notification bar and sticky menu dashboard
+3. Add a countdown timer to your notification bar to create an urgency sense
 4. Design your welcome bar
-5. You can change the background text, call-to-action text, fonts, and colors
-6. Check out welcome bar in action
-
+5. Add your custom CSS
+6. You can choose your current menu from the dropdown or enter it ID or class manually
+7. You can change the background text, call-to-action text, fonts, and colors
+8. This is how myStickymenu will actually look on your site
 
 == Changelog ==
+= 2.5.8 =
+Plans text change
+= 2.5.7 =
+Improvement: Better support for languages that read from right to left (like Hebrew or Arabic)
+Improvement: We’ve also added inherit & system stack font options to give you flexibility when it comes to font choices on your menu bar.
+Improvement: New MSM dashboard to help you manage your top bars and sticky menus better.
+Improvement: Disabling sticky menu features - you can now disable the sticky menu feature if you want to use top bars only
+Improvement: 
+Fixed: Optimized the JS and fix “console.log” on mystickymenu.js bug
+
+For Pro plan users:
+Added: You can now put countdown timers on your sticky menu! Best used for promotions or launch announcements!
 = 2.5.6 =
 Z-index welcome bar fix
 = 2.5.5 =

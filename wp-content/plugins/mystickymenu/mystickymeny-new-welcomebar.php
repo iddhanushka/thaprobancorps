@@ -1,7 +1,7 @@
 <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins" />
 <h2 class="text-center"><?php esc_attr_e( 'Create a new My Sticky Welcome bar for your website. What can you use it for?', 'mystickyelements' ); ?></h2>
 <div class="mystickymenu-new-widget-row">
-	<div class="mystickymenu-features">
+	<div class="mystickymenu-features new_widget_row">
 		<ul>
 			<li>
 				<div class="mystickymenu-feature">

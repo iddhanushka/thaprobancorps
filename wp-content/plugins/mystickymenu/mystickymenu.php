@@ -3,7 +3,7 @@
 Plugin Name: myStickymenu
 Plugin URI: https://premio.io/
 Description: Simple sticky (fixed on top) menu implementation for navigation menu and Welcome bar for announcements and promotion. After install go to Settings / myStickymenu and change Sticky Class to .your_navbar_class or #your_navbar_id.
-Version: 2.5.6
+Version: 2.5.8
 Author: Premio
 Author URI: https://premio.io/downloads/mystickymenu/
 Text Domain: mystickymenu
@@ -12,7 +12,7 @@ License: GPLv2 or later
 */
 
 defined('ABSPATH') or die("Cannot access pages directly.");
-define( 'MYSTICKY_VERSION', '2.5.6' );
+define( 'MYSTICKY_VERSION', '2.5.8' );
 define('MYSTICKYMENU_URL', plugins_url('/', __FILE__));  // Define Plugin URL
 define('MYSTICKYMENU_PATH', plugin_dir_path(__FILE__));  // Define Plugin Directory Path
 
@@ -21,6 +21,7 @@ require_once("welcome-bar.php");
 
 if( is_admin() ) {
     include_once 'class-review-box.php';
+    include_once 'class-upgrade-box.php';
 }
 
 class MyStickyMenuBackend
@@ -45,7 +46,27 @@ class MyStickyMenuBackend
 		
 		add_action( 'admin_footer', array( $this, 'mystickymenu_deactivate' ) );
 		add_action( 'wp_ajax_mystickymenu_plugin_deactivate', array( $this, 'mystickymenu_plugin_deactivate' ) );
-    }
+		add_action('wp_ajax_stickymenu_widget_delete', array( $this, 'stickymenu_widget_delete' ) );
+		add_action('wp_ajax_mystickymenu_widget_status', array( $this, 'mystickymenu_widget_status' ) );
+		add_action('wp_ajax_stickymenu_status_update', array( $this, 'stickymenu_status_update' ) );
+		
+		
+		
+	}
+	
+	
+	
+	public function stickymenu_status_update(){
+		check_ajax_referer( 'mystickymenu', 'wpnonce' );
+		$mysticky_options = get_option( 'mysticky_option_name' );
+		if( isset($_POST['stickymenu_status']) && $_POST['stickymenu_status'] != ''  ){
+			
+			$stickymenu_status = $_POST['stickymenu_status'];
+			$mysticky_options['stickymenu_enable'] = $stickymenu_status;
+			update_option('mysticky_option_name',$mysticky_options);
+		}
+		wp_die();
+	}
 
     public function mystickymenu_popup_status() {
         if(!empty($_REQUEST['nonce']) && wp_verify_nonce($_REQUEST['nonce'], 'mystickymenu_update_popup_status')) {
@@ -54,6 +75,40 @@ class MyStickyMenuBackend
         echo esc_attr("1");
         die;
     }
+	
+	public function mystickymenu_widget_status() {
+		
+		check_ajax_referer( 'mystickymenu', 'wpnonce' );
+		
+		if ( isset($_POST['widget_id']) && $_POST['widget_id'] != '' && isset($_POST['widget_status']) && $_POST['widget_status'] != ''  ) {
+			$welcomebars_widgets = get_option( 'mystickymenu-welcomebars' );
+			$widget_id = $_POST['widget_id'];
+			$welcomebars_widget_no = '-' . $widget_id ;
+			
+			if( $widget_id == 0 || $welcomebars_widgets[$widget_id] == 'default' ){
+				$stickymenu_widget = get_option('mysticky_option_welcomebar');
+				$welcomebars_widget_no = '';	
+			}
+			$widget_status = $_POST['widget_status'];
+			$stickymenu_widget['mysticky_welcomebar_enable'] = $widget_status;
+			
+			update_option( 'mysticky_option_welcomebar',$stickymenu_widget);
+		}
+		wp_die();
+	}
+	
+	public function stickymenu_widget_delete(){
+		
+		check_ajax_referer( 'mystickymenu', 'wpnonce' );
+		if ( isset($_POST['widget_id']) && $_POST['widget_id'] != '' && isset($_POST['widget_delete']) && $_POST['widget_delete'] == 1  ) {
+			$welcomebars_widgets = get_option( 'mystickymenu-welcomebars' );
+			$widget_id = $_POST['widget_id'];
+			unset( $welcomebars_widgets[$widget_id] );
+			delete_option( 'mysticky_option_welcomebar');			
+			update_option( 'mystickymenu-welcomebars', $welcomebars_widgets );
+		}
+		wp_die(); 
+	}
 
     public function sticky_menu_update_status() {
         if(!empty($_REQUEST['nonce']) && wp_verify_nonce($_REQUEST['nonce'], 'myStickymenu_update_nonce')) {
@@ -72,7 +127,8 @@ class MyStickyMenuBackend
         echo "1";
         die;
     }
-
+	
+	
 	public function mystickymenu_settings_link($links){
 		$settings_link = '<a href="admin.php?page=my-stickymenu-welcomebar">Settings</a>';
 		$links['go_pro'] = '<a href="'.admin_url("admin.php?page=my-stickymenu-upgrade&type=upgrade").'" style="color: #FF5983; font-weight: bold; display: inline-block; border: solid 1px #FF5983; border-radius: 4px; padding: 0 5px;">'.__( 'Upgrade', 'stars-testimonials' ).'</a>';
@@ -90,7 +146,15 @@ class MyStickyMenuBackend
             if($option === false) {
                 add_option("mystickymenu_intro_box", "show");
             }
-			wp_redirect( admin_url( 'admin.php?page=my-stickymenu-welcomebar' ) ) ;
+			
+			$welcomebar_widgets = get_option("mysticky_option_welcomebar");
+			if ( $welcomebar_widgets ) {
+				wp_redirect( admin_url( 'admin.php?page=my-stickymenu-welcomebar' ) ) ;
+			} else {
+				wp_redirect( admin_url( 'admin.php?page=my-stickymenu-welcomebar&widget=0' ) ) ;
+				
+			}
+			
 			exit;
 		}
 	}
@@ -102,6 +166,7 @@ class MyStickyMenuBackend
 		}
 
 		wp_enqueue_style('mystickymenuAdminStyle', plugins_url('/css/mystickymenu-admin.css', __FILE__), array(), MYSTICKY_VERSION );
+		wp_style_add_data( 'mystickymenuAdminStyle', 'rtl', 'replace' );
 		wp_enqueue_style( 'wp-color-picker' );		
 		//wp_enqueue_script( 'wp-color-picker-alpha', plugins_url('/js/wp-color-picker-alpha.min.js', __FILE__), array( 'wp-color-picker' ), MYSTICKY_VERSION );
 		wp_enqueue_style( 'wp-jquery-ui-dialog' );
@@ -117,9 +182,20 @@ class MyStickyMenuBackend
             wp_enqueue_script( 'my-select2', plugins_url('js/select2.min.js', __FILE__ ), array( 'wp-color-picker' ), false, true );
             wp_enqueue_style('my-css-select2', plugins_url('css/select2.min.css', __FILE__), array(), MYSTICKY_VERSION );
             wp_enqueue_style('my-css-admin-settings', plugins_url('css/admin-setting.css', __FILE__), array(), MYSTICKY_VERSION );
+
+            wp_style_add_data( 'my-css-admin-settings', 'rtl', 'replace' );
         }
 
 		wp_enqueue_script('mystickymenuAdminScript', plugins_url('/js/mystickymenu-admin.js', __FILE__), array( 'jquery', 'jquery-ui-slider' ), MYSTICKY_VERSION);
+		
+		$locale_settings = array(
+			'ajaxurl' => admin_url('admin-ajax.php'),
+			'mystickymenu_url' => MYSTICKYMENU_URL,
+			'ajax_nonce' => wp_create_nonce('mystickymenu'),					
+		);
+		
+		wp_localize_script('mystickymenuAdminScript', 'mystickymenu', $locale_settings);
+		
 	}
 
 	public function mysticky_load_transl(){
@@ -148,7 +224,7 @@ class MyStickyMenuBackend
 		add_submenu_page(
 			'my-stickymenu-welcomebar',
 			'Settings Admin',
-			'Welcome Bar',
+			'Dashboard',
 			'manage_options',
 			'my-stickymenu-welcomebar',
 			array( $this, 'mystickystickymenu_admin_welcomebar_page' )
@@ -208,6 +284,17 @@ class MyStickyMenuBackend
 				$post['device_mobile'] = 'on';
 				update_option( 'mysticky_option_name', $post);
 				$this->mysticky_clear_all_caches();
+				
+				
+				if(isset($_POST['submit']) && $_POST['submit'] == 'SAVE & VIEW DASHBOARD'){
+					?>
+					<script>
+						window.location.href = <?php echo "'".admin_url("admin.php?page=my-stickymenu-welcomebar")."'";?>;
+					</script>
+					<?php		
+					
+				}
+				
 				echo '<div class="updated settings-error notice is-dismissible "><p><strong>' . esc_html__('Settings saved.','mystickymenu'). '</p></strong></div>';
 			} else {
 				wp_verify_nonce($_GET['nonce'], 'wporg_frontend_delete');
@@ -245,23 +332,26 @@ class MyStickyMenuBackend
             }
         </style>
 		<div id="mystickymenu" class="wrap mystickymenu">
-			<div class="sticky-header-menu">
-				<ul>
-					<li><a href="<?php echo admin_url( 'admin.php?page=my-stickymenu-welcomebar' ) ?>" ><?php _e('Welcome Bar', 'mystickymenu'); ?></a></li>
-					<li><a href="<?php echo admin_url( 'admin.php?page=my-stickymenu-settings' ) ?>" class="active" ><?php _e('Sticky Menu', 'mystickymenu'); ?></a></li>
-					
-					<li><a href="<?php echo admin_url( 'admin.php?page=my-stickymenu-upgrade' ) ?>"><?php _e('Upgrade to Pro', 'mystickymenu'); ?></a></li>
-				</ul>
-			</div>
+			
 			<div id="sticky-header-settings" class="sticky-header-content">
+				
+				<form class="mysticky-form" id="mystickymenuform" method="post" action="#">
 				<div class="mystickymenu-heading">
+					<div class="mysticky-stickymenu-header-title mystickymenu-content-section">
+						<h3><?php _e('Sticky menu', 'myStickymenu'); ?></h3>
+						<label for="mysticky-stickymenu-form-enabled" class="mysticky-welcomebar-switch stickymenu-switch">
+							<input type="checkbox" id="mysticky-stickymenu-form-enabled" name="mysticky_option_name[stickymenu_enable]" value="1" <?php checked( @$mysticky_options['stickymenu_enable'], '1' );?> />
+							<span class="slider"></span>
+						</label>
+						<div class="mysticky-stickymenu-backword-page">
+							<a href="<?php echo admin_url("admin.php?page=my-stickymenu-welcomebar");?>"><span class="dashicons dashicons-arrow-left-alt2 back-dashboard" style="color: unset;font-size: 17px;"></span> <?php _e('Back to Dashboard', 'myStickymenu'); ?></a>
+						</div>
+					</div>
 					<div class="myStickymenu-header-title">
 						<h3><?php esc_attr_e('How To Make a Sticky Header', 'mystickymenu'); ?></h3>
 					</div>
 					<p><?php _e("Add sticky menu / header to any theme. <br />Simply change 'Sticky Class' to HTML element class desired to be sticky (div id can be used as well).", 'mystickymenu'); ?></p>
 				</div>
-
-				<form class="mysticky-form" method="post" action="#">
 				<div class="mystickymenu-content-section sticky-class-sec">
 					<table>
 						<tr>
@@ -312,7 +402,7 @@ class MyStickyMenuBackend
 									<option value="custom" <?php selected( 'custom', $mysticky_options['mysticky_class_id_selector'] ); ?>><?php esc_html_e( 'Other Class Or ID', 'mystickymenu' );?></option>
 								</select>
 
-								<input type="text" size="18" id="mysticky_class_selector" class="mystickyinput" name="mysticky_option_name[mysticky_class_selector]" value="<?php echo $mysticky_options['mysticky_class_selector'];?>"  />
+								<input type="text" size="18" id="mysticky_class_selector" class="mystickyinput" name="mysticky_option_name[mysticky_class_selector]" value="<?php echo esc_attr($mysticky_options['mysticky_class_selector']);?>"  />
 								
 								<p class="description mystuckymenu-class-id">
 									<span class="dashicons dashicons-info"></span>&nbsp;
@@ -345,8 +435,6 @@ class MyStickyMenuBackend
 						</tr>
 					</table>
 				</div>
-
-
 				<div class="mystickymenu-content-section">
 					<h3><?php esc_html_e( 'Settings', 'mystickymenu' );?></h3>
 					<table class="form-table">
@@ -355,7 +443,7 @@ class MyStickyMenuBackend
 								<label for="myfixed_zindex" class="mysticky_title"><?php _e("Sticky z-index", 'mystickymenu')?></label>
 							</td>
 							<td>
-								<input type="number" min="0" max="2147483647" step="1" class="mysticky-number" id="myfixed_zindex" name="mysticky_option_name[myfixed_zindex]" value="<?php echo $mysticky_options['myfixed_zindex'];?>" />
+								<input type="number" min="0" max="2147483647" step="1" class="mysticky-number" id="myfixed_zindex" name="mysticky_option_name[myfixed_zindex]" value="<?php echo esc_attr($mysticky_options['myfixed_zindex']);?>" />
 							</td>
 							<td>
 								<label class="mysticky_title myssticky-remove-hand"><?php _e("Fade or slide effect", 'mystickymenu')?></label>
@@ -378,7 +466,7 @@ class MyStickyMenuBackend
 							</td>
 							<td>
 								<div class="px-wrap">
-									<input type="number" class="" min="0" step="1" id="myfixed_disable_small_screen" name="mysticky_option_name[myfixed_disable_small_screen]" value="<?php echo $mysticky_options['myfixed_disable_small_screen'];?>" />
+									<input type="number" class="" min="0" step="1" id="myfixed_disable_small_screen" name="mysticky_option_name[myfixed_disable_small_screen]" value="<?php echo esc_attr($mysticky_options['myfixed_disable_small_screen']);?>" />
 									<span class="input-px">PX</span>
 								</div>
 							</td>
@@ -388,7 +476,7 @@ class MyStickyMenuBackend
 							</td>
 							<td>
 								<div class="px-wrap">
-									<input type="number" class="small-text" min="0" step="1" id="mysticky_active_on_height" name="mysticky_option_name[mysticky_active_on_height]" value="<?php echo $mysticky_options['mysticky_active_on_height'];?>" />
+									<input type="number" class="small-text" min="0" step="1" id="mysticky_active_on_height" name="mysticky_option_name[mysticky_active_on_height]" value="<?php echo esc_attr($mysticky_options['mysticky_active_on_height']);?>" />
 									<span class="input-px">PX</span>
 								</div>
 							</td>
@@ -400,7 +488,7 @@ class MyStickyMenuBackend
 							</td>
 							<td>
 								<div class="px-wrap">
-									<input type="number" class="small-text" min="0" step="1" id="mysticky_active_on_height_home" name="mysticky_option_name[mysticky_active_on_height_home]" value="<?php echo $mysticky_options['mysticky_active_on_height_home'];?>" />
+									<input type="number" class="small-text" min="0" step="1" id="mysticky_active_on_height_home" name="mysticky_option_name[mysticky_active_on_height_home]" value="<?php echo esc_attr($mysticky_options['mysticky_active_on_height_home']);;?>" />
 									<span class="input-px">PX</span>
 								</div>
 							</td>
@@ -408,7 +496,7 @@ class MyStickyMenuBackend
 								<label for="myfixed_bgcolor" class="mysticky_title myssticky-remove-hand"><?php _e("Sticky Background Color", 'mystickymenu')?></label>
 							</td>
 							<td>
-								<input type="text" id="myfixed_bgcolor" name="mysticky_option_name[myfixed_bgcolor]" class="my-color-field" data-alpha="true" value="<?php echo $mysticky_options['myfixed_bgcolor'];?>" />
+								<input type="text" id="myfixed_bgcolor" name="mysticky_option_name[myfixed_bgcolor]" class="my-color-field" data-alpha="true" value="<?php echo esc_attr($mysticky_options['myfixed_bgcolor']);;?>" />
 
 							</td>
 						</tr>
@@ -417,7 +505,7 @@ class MyStickyMenuBackend
 								<label for="myfixed_transition_time" class="mysticky_title"><?php _e("Sticky Transition Time", 'mystickymenu')?></label>
 							</td>
 							<td>
-								<input type="number" class="small-text" min="0" step="0.1" id="myfixed_transition_time" name="mysticky_option_name[myfixed_transition_time]" value="<?php echo $mysticky_options['myfixed_transition_time'];?>" />
+								<input type="number" class="small-text" min="0" step="0.1" id="myfixed_transition_time" name="mysticky_option_name[myfixed_transition_time]" value="<?php echo esc_attr($mysticky_options['myfixed_transition_time']);?>" />
 							</td>
 							<td>
 								<label for="myfixed_textcolor" class="mysticky_title myssticky-remove-hand"><?php _e("Sticky Text Color", 'mystickymenu')?></label>
@@ -433,9 +521,9 @@ class MyStickyMenuBackend
 								<p class="description"><?php _e( 'numbers 1-100.', 'mystickymenu');?></p>
 							</td>
 							<td>
-								<input type="hidden" class="small-text mysticky-slider" min="0" step="1" max="100" id="myfixed_opacity" name="mysticky_option_name[myfixed_opacity]"  value="<?php echo $mysticky_options['myfixed_opacity'];?>"  />
+								<input type="hidden" class="small-text mysticky-slider" min="0" step="1" max="100" id="myfixed_opacity" name="mysticky_option_name[myfixed_opacity]"  value="<?php echo esc_attr($mysticky_options['myfixed_opacity']);;?>"  />
 								<div id="slider">
-								  <div id="custom-handle" class="ui-slider-handle"><?php //echo $mysticky_options['myfixed_opacity'];?></div>
+								  <div id="custom-handle" class="ui-slider-handle"><?php //echo esc_attr($mysticky_options['myfixed_opacity']);?></div>
 								</div>
 
 							</td>
@@ -473,16 +561,16 @@ class MyStickyMenuBackend
 										foreach($page_option as $k=>$option) {
 											$count++;
 											?>
-											<div class="mysticky-page-option <?php echo $k==count($page_option)?"last":""; ?>">
+											<div class="mysticky-page-option <?php echo ( $k==count($page_option) ) ? "last":""; ?>">
 												<div class="url-content">
 													<div class="mysticky-welcomebar-url-select">
-														<select name="mysticky_option_name[mysticky_page_settings][<?php echo $count; ?>][shown_on]" id="url_shown_on_<?php echo $count  ?>_option">
-															<option value="show_on" <?php echo $option['shown_on']=="show_on"?"selected":"" ?> ><?php esc_html_e( 'Show on', 'mysticky' )?></option>
-															<option value="not_show_on" <?php echo $option['shown_on']=="not_show_on"?"selected":"" ?>><?php esc_html_e( "Don't show on", "mysticky" );?></option>
+														<select name="mysticky_option_name[mysticky_page_settings][<?php echo esc_attr($count); ?>][shown_on]" id="url_shown_on_<?php echo esc_attr($count);  ?>_option">
+															<option value="show_on" <?php echo ($option['shown_on']=="show_on" ) ? "selected":"" ?> ><?php esc_html_e( 'Show on', 'mysticky' )?></option>
+															<option value="not_show_on" <?php echo ($option['shown_on']=="not_show_on" )? "selected":""; ?>><?php esc_html_e( "Don't show on", "mysticky" );?></option>
 														</select>
 													</div>
 													<div class="mysticky-welcomebar-url-option">
-														<select class="mysticky-url-options" name="mysticky_option_name[mysticky_page_settings][<?php echo $count; ?>][option]" id="url_rules_<?php echo $count  ?>_option">
+														<select class="mysticky-url-options" name="mysticky_option_name[mysticky_page_settings][<?php echo esc_attr($count);; ?>][option]" id="url_rules_<?php echo esc_attr($count);  ?>_option">
 															<option disabled value=""><?php esc_html_e( "Select Rule", "mysticky" );?></option>
 															<?php foreach($url_options as $key=>$value) {
 																$selected = ( isset($option['option']) && $option['option']==$key )?" selected='selected' ":"";
@@ -494,7 +582,7 @@ class MyStickyMenuBackend
 														<span class='mysticky-welcomebar-url'><?php echo site_url("/"); ?></span>
 													</div>
 													<div class="mysticky-welcomebar-url-values">
-														<input type="text" value="<?php echo $option['value'] ?>" name="mysticky_option_name[mysticky_page_settings][<?php echo $count; ?>][value]" id="url_rules_<?php echo $count; ?>_value" />
+														<input type="text" value="<?php echo esc_attr($option['value']) ?>" name="mysticky_option_name[mysticky_page_settings][<?php echo esc_attr($count); ?>][value]" id="url_rules_<?php echo esc_attr($count);; ?>_value" />
 													</div>
 													<div class="mysticky-welcomebar-url-buttons">
 														<a class="mysticky-remove-rule" href="javascript:;">x</a>
@@ -661,44 +749,67 @@ class MyStickyMenuBackend
 							<p></p>
 						</div>
 					</div>
-					
 				</div>
+				
+				<div class="mystickymenu-action-popup new-center" id="mysticky-sticky-save-confirm" style="display:none;">
+					<div class="mystickymenu-action-popup-header">
+						<h3><?php esc_html_e("Turn on Sticky Menu","mystickymenu"); ?></h3>
+						<span class="dashicons dashicons-no-alt close-button" data-from = "stickymenu-confirm"></span>
+					</div>
+					<div class="mystickymenu-action-popup-body">
+						<p><?php esc_html_e("Sticky Menu is not turned on. Turn on Sticky Menu to activate sticky menu on your website.","mystickymenu"); ?></p>
+					</div>
+					<div class="mystickymenu-action-popup-footer">
+						<button type="button" class="btn-enable btn-nevermind-status" id="stickymenu_status_dolater" ><?php esc_html_e("Just save & keep it off","mystickymenu"); ?></button>
+						<button type="button" class="btn-disable-cancel" id="stickymenu_status_ok" ><?php esc_html_e("Save & Turn on Sticky Menu","mystickymenu"); ?></button>
+					</div>
+				</div>
+				<div class="mystickymenupopup-overlay" id="stickymenu-option-overlay-popup"></div>
+
 				<p class="submit">
-					<input type="submit" name="submit" id="submit" class="button button-primary" value="<?php esc_attr_e('Save', 'mystickymenu');?>">
+					<input type="submit" name="submit" id="submit" class="button button-primary btn-save-stickymenu" value="<?php esc_attr_e('Save', 'mystickymenu');?>">
+					
+					<input type="submit" name="submit" id="submit" class="button button-primary save_view_dashboard" style="width: auto;" value="<?php _e('SAVE & VIEW DASHBOARD', 'mystickymenu');?>">
 				</p>
-				<input type="hidden" name="nonce" value="<?php echo $nonce ?>">
+				<input type="hidden" name="nonce" value="<?php echo esc_attr($nonce); ?>">
+				<input type="hidden" id="save_stickymenu" value=""/>
 				</form>
 				<form class="mysticky-hideformreset" method="post" action="">
 					<input name="reset_mysticky_options" class="button button-secondary confirm" type="submit" value="<?php esc_attr_e('Reset', 'mystickymenu');?>" >
 					<input type="hidden" name="action" value="reset" />
 					<?php $nonce = wp_create_nonce('mysticky_option_backend_reset_nonce'); ?>
-					<input type="hidden" name="nonce" value="<?php echo $nonce ?>">
+					<input type="hidden" name="nonce" value="<?php echo esc_attr($nonce); ?>">
 				</form>
 				<p class="myStickymenu-review"><a href="https://wordpress.org/support/plugin/mystickymenu/reviews/" target="_blank"><?php esc_attr_e('Leave a review','mystickymenu'); ?></a></p>
 			</div>
         </div>
         <?php }
 	}
-	public function mystickystickymenu_admin_new_welcomebar_page() {		
-		?>
-		<div id="mystickymenu" class="wrap mystickymenu mystickymenu-new-widget-wrap">		 
-			<?php include_once dirname(__FILE__) . '/mystickymeny-new-welcomebar.php';?>
-		</div>
-		<?php
-	}
+	
 	
 	public function mystickystickymenu_admin_welcomebar_page() {
 		
-		 $is_shown = get_option("mystickymenu_update_message");
+		$is_shown = get_option("mystickymenu_update_message");
         if($is_shown == 1) {
-			
 			include_once MYSTICKYMENU_PATH . '/update.php';
 			return;
 		} 
 		
 		/* welcome bar save data  */
+		
 		if (isset($_POST['mysticky_option_welcomebar']) && !empty($_POST['mysticky_option_welcomebar']) && isset($_POST['nonce'])) {
-			if(!empty($_POST['nonce']) && wp_verify_nonce($_POST['nonce'], 'mysticky_option_welcomebar_update')) {						
+			if(!empty($_POST['nonce']) && wp_verify_nonce($_POST['nonce'], 'mysticky_option_welcomebar_update')) {		
+				$widgets = get_option( 'mysticky_option_welcomebar' );
+				$is_first_widget = 0;
+				if( isset($widgets) && $widgets == '' ){
+					$is_first_widget = 1;
+				}
+				
+				
+				//
+				$welcomebars_widgets[0] = 'Welcome Bar #0';
+				update_option( 'mystickymenu-welcomebars', $welcomebars_widgets );
+				
 				$mysticky_option_welcomebar = filter_var_array( $_POST['mysticky_option_welcomebar'], FILTER_SANITIZE_STRING );
 				$mysticky_option_welcomebar['mysticky_welcomebar_bar_text'] = wp_kses_post($_POST['mysticky_option_welcomebar']['mysticky_welcomebar_bar_text']);
 				$mysticky_option_welcomebar['mysticky_welcomebar_height'] = 60;
@@ -708,14 +819,24 @@ class MyStickyMenuBackend
 				$mysticky_option_welcomebar['mysticky_welcomebar_triggersec'] = '0';
 				$mysticky_option_welcomebar['mysticky_welcomebar_expirydate'] = '';
 				$mysticky_option_welcomebar['mysticky_welcomebar_page_settings'] = '';
+				
 				update_option( 'mysticky_option_welcomebar', $mysticky_option_welcomebar);
+				
 				$this->mysticky_clear_all_caches();
+				
+				if($is_first_widget == 1){
+					echo '<div class="main-popup-mystickymenu-bg first-widget-popup"><div class="main-popup-mystickymenu-bg mystickymenu_container_popupbox"><div class="firstwidget-popup-contain"><img src="'. MYSTICKYMENU_URL .'/images/firstwidget_header.svg"><h4>Your first welcome bar is up! 🎉</h4> <p> Yay - we’re happy you chose MyStickyMenu for your website. If you run into anything, the <a href=" https://premio.io/help/mystickymenu/?utm_source=firstbar" target="_blank" style="text-decoration: underline !important;"><strong>help center</strong></a> is always here for you.</p><a href="'.admin_url("admin.php?page=my-stickymenu-welcomebar").'" class="mystickymenu btn-black btn-back-dashboard">Back to Dashboard</a></div><div class="popup-modul-close-btn firstwidget-model"><a href="javascript:void(0)" class="close-chaty-maxvisitor-popup" id="close-first-popup"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 5L5 15" stroke="#4A4A4A" stroke-width="2.08" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 5L15 15" stroke="#4A4A4A" stroke-width="2.08" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div></div><div class="mystickymenupopup-overlay" id="first_widget_overlay" style="display:block;"></div>';
+				}
+				
 				echo '<div class="updated settings-error notice is-dismissible "><p><strong>' . esc_html__('Settings saved.','mystickymenu'). '</p></strong></div>';
 			} else {
 				wp_verify_nonce($_GET['nonce'], 'wporg_frontend_delete');
 				echo '<div class="error settings-error notice is-dismissible "><p><strong>' . esc_html__('Unable to complete your request','mystickymenu'). '</p></strong></div>';
 			}
 		} 
+		
+		
+		
 		if (isset($_POST['mysticky_welcomebar_reset']) && !empty($_POST['mysticky_welcomebar_reset']) && isset($_POST['nonce_reset'])) {
 			if(!empty($_POST['nonce_reset']) && wp_verify_nonce($_POST['nonce_reset'], 'mysticky_option_welcomebar_reset')) {	
 				$mysticky_option_welcomebar_reset = mysticky_welcomebar_pro_widget_default_fields();				
@@ -726,6 +847,14 @@ class MyStickyMenuBackend
 				wp_verify_nonce($_GET['nonce'], 'wporg_frontend_delete');
 				echo '<div class="error settings-error notice is-dismissible "><p><strong>' . esc_html__('Unable to complete your request','mystickymenu'). '</p></strong></div>';
 			}
+		}
+		
+		if(isset($is_first_widget) && $is_first_widget == 0 && isset($_POST['submit']) && $_POST['submit'] == 'SAVE & VIEW DASHBOARD'){
+			?>
+			<script>
+				window.location.href = <?php echo "'".admin_url("admin.php?page=my-stickymenu-welcomebar")."'";?>;
+			</script>
+			<?php
 		}
 
 		$mysticky_options = get_option( 'mysticky_option_name');
@@ -748,22 +877,55 @@ class MyStickyMenuBackend
             }
         </style>
 		<div id="mystickymenu" class="wrap mystickymenu">
-			<div class="sticky-header-menu">
-				<ul>
-					<li><a href="<?php echo admin_url( 'admin.php?page=my-stickymenu-welcomebar' ) ?>" class="active" ><?php _e('Welcome Bar', 'mystickymenu'); ?></a></li>
-					<li><a href="<?php echo admin_url( 'admin.php?page=my-stickymenu-settings' ) ?>"><?php _e('Sticky Menu', 'mystickymenu'); ?></a></li>					
-					<li><a href="<?php echo admin_url( 'admin.php?page=my-stickymenu-upgrade' ) ?>"><?php _e('Upgrade to Pro', 'mystickymenu'); ?></a></li>
-				</ul>
-			</div>
+			
 			<div id="sticky-header-welcome-bar" class="sticky-header-content">
-				<?php mysticky_welcome_bar_backend(); ?>
+				<?php 
+					
+					$welcomebars_widgets = get_option( 'mysticky_option_welcomebar' );
+					if ( !isset($_GET['widget']) && isset( $_GET['page'] ) && $_GET['page'] == 'my-stickymenu-welcomebar' ) {
+						include_once( 'stickymenu-dashboard.php');
+					}elseif ( !isset($_GET['isedit']) && !isset($_GET['save']) && isset($welcomebars_widgets) && !empty($welcomebars_widgets) ) {
+						?>
+						<div id="mystickymenu" class="wrap mystickymenu mystickymenu-new-widget-wrap">		 
+							<?php include_once dirname(__FILE__) . '/mystickymeny-new-welcomebar.php';?>
+						</div>
+						<?php
+					}else{
+						
+						
+						mysticky_welcome_bar_backend(); 	
+					}
+				?>
 			</div>
 		</div>
 		<?php
 	}
+	
+	public function mystickystickymenu_admin_new_welcomebar_page() {	
+		$welcomebars_widgets = get_option( 'mysticky_option_welcomebar' );
+		if( isset($welcomebars_widgets) && !empty($welcomebars_widgets)){
+			?>
+			<div id="mystickymenu" class="wrap mystickymenu mystickymenu-new-widget-wrap">		 
+				<?php include_once dirname(__FILE__) . '/mystickymeny-new-welcomebar.php';?>
+			</div>
+			<?php	
+		}else{ ?>
+			<div id="mystickymenu" class="wrap mystickymenu">
+				<div id="sticky-header-welcome-bar" class="sticky-header-content">
+					<?php mysticky_welcome_bar_backend(); ?>
+				</div>
+			</div>
+			<?php
+		}
+		
+	}
+	
 	public function mystickymenu_recommended_plugins() {
 		include_once 'recommended-plugins.php';
 	}
+	
+	
+	
 	public function mystickymenu_admin_upgrade_to_pro() {
         $pro_url = "https://go.premio.io/checkount/?edd_action=add_to_cart&download_id=2199&edd_options[price_id]=";
         ?>
@@ -780,13 +942,6 @@ class MyStickyMenuBackend
             }
         </style>
 		<div id="mystickymenu" class="wrap mystickymenu">
-			<div class="sticky-header-menu">
-				<ul>
-					<li><a href="<?php echo admin_url( 'admin.php?page=my-stickymenu-welcomebar' ) ?>" ><?php _e('Welcome Bar', 'mystickymenu'); ?></a></li>
-					<li><a href="<?php echo admin_url( 'admin.php?page=my-stickymenu-settings' ) ?>"><?php _e('Sticky Menu', 'mystickymenu'); ?></a></li>					
-					<li><a href="<?php echo admin_url( 'admin.php?page=my-stickymenu-upgrade' ) ?>" class="active" ><?php _e('Upgrade to Pro', 'mystickymenu'); ?></a></li>
-				</ul>
-			</div>
 			<?php include_once "upgrade-to-pro.php"; ?>
         </div>
         <?php
@@ -910,6 +1065,13 @@ class MyStickyMenuBackend
 			}
 			update_option( 'mysticky_option_name', $mysticky_option_name );
 			update_option( 'update_mysticky_version_2_6', true );
+		}
+		
+		if ( !get_option( 'update_mysticky_version_2_5_7') && current_user_can( 'manage_options' )) {
+			$mysticky_option_name = get_option( 'mysticky_option_name' );
+			$mysticky_option_name['stickymenu_enable'] = 1;			
+			update_option( 'mysticky_option_name', $mysticky_option_name );
+			update_option( 'update_mysticky_version_2_5_7', true );
 		}
 	}
 	
@@ -1111,7 +1273,7 @@ class MyStickyMenuFrontend
 	public function mysticky_build_stylesheet_content() {
 
 		$mysticky_options = get_option( 'mysticky_option_name' );
-
+		
 		if (isset($mysticky_options['disable_css'])) {
 			//do nothing
 		} else {
@@ -1176,7 +1338,7 @@ class MyStickyMenuFrontend
 	public function mystickymenu_google_fonts_url() {
 		$welcomebar = get_option( 'mysticky_option_welcomebar' );
 		
-		$default_fonts = array('Arial', 'Tahoma', 'Verdana', 'Helvetica', 'Times New Roman', 'Trebuchet MS', 'Georgia' );
+		$default_fonts = array('System Stack','Arial', 'Tahoma', 'Verdana', 'Helvetica', 'Times New Roman', 'Trebuchet MS', 'Georgia' );
 		$fonts_url        = '';
 		$fonts            = array();
 		$font_args        = array();
@@ -1216,9 +1378,11 @@ class MyStickyMenuFrontend
 	}
 
 	public function mystickymenu_script() {
-
+		
+		wp_enqueue_script( 'jquery' );
+		
 		$mysticky_options = get_option( 'mysticky_option_name' );
-
+		
 		if ( is_admin_bar_showing() ) {
 			$top = "true";
 		} else {
@@ -1229,7 +1393,10 @@ class MyStickyMenuFrontend
 		if ( isset($welcomebar['mysticky_welcomebar_enable']) && $welcomebar['mysticky_welcomebar_enable'] == 1 ) {
 			wp_enqueue_style('google-fonts', $this->mystickymenu_google_fonts_url(),array(), MYSTICKY_VERSION );
 		}
-
+		
+		if( !isset($mysticky_options['stickymenu_enable']) || isset($mysticky_options['stickymenu_enable']) && $mysticky_options['stickymenu_enable'] == 0){
+			return;
+		}
 		// needed for update 1.7 => 1.8 ... will be removed in the future ()
 		if (isset($mysticky_options['mysticky_active_on_height_home'])) {
 			//do nothing
@@ -1427,4 +1594,11 @@ if( is_admin() ) {
 	
 } else {
 	new MyStickyMenuFrontend();
+}
+
+
+register_activation_hook( __FILE__,  'mystickymenu_activate'  );
+	
+function mystickymenu_activate() {
+	update_option( 'update_mysticky_version_2_5_7', true );
 }

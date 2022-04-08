@@ -19,6 +19,20 @@
 				}
 			})
 		});
+		
+		$(document).on("click", ".skip-dolatter", function(){
+			var updateStatus = 0;
+			$(".updates-form button").attr("disabled", true);
+			$.ajax({
+				url: ajaxurl,
+				data: "action=sticky_menu_update_status&status="+updateStatus+"&nonce="+$("#myStickymenu_update_nonce").val()+"&email="+$("#myStickymenu_update_email").val(),
+				type: 'post',
+				cache: false,
+				success: function(){
+					window.location.reload();
+				}
+			})
+		});
 
 		var handle = $( "#custom-handle" );
 		$( "#slider" ).slider({
@@ -241,6 +255,7 @@
 				});
 			}
 		} );
+		
 		$( 'input[name="mysticky_option_welcomebar[mysticky_welcomebar_btn_mobile]"]' ).on( 'change', function(){
 			if( $( this ).prop( "checked" ) == true ) {
 				$( '.mysticky-welcomebar-fixed' ).addClass( 'mysticky-welcomebar-btn-mobile' );
@@ -274,6 +289,9 @@
 
 		$( 'select[name="mysticky_option_welcomebar[mysticky_welcomebar_font]"]' ).on( 'change', function(){
 			var myfixed_font_val = $( this ).val();
+			if( myfixed_font_val == 'System Stack'){
+				myfixed_font_val = '-apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"';
+			}
 			$( 'head' ).append( '<link href="https://fonts.googleapis.com/css?family='+ myfixed_font_val +':400,600,700" rel="stylesheet" type="text/css" class="sfba-google-font">' );
 			$( '.mysticky-welcomebar-fixed' ).css( 'font-family', myfixed_font_val );
 		} );
@@ -327,7 +345,7 @@
 		});
 		$( '.mysticky-welcomebar-fixed' ).addClass( 'entry-effect' );
 
-		$( '.mysticky-welcomebar-submit input#submit' ).on( 'click', function(e){
+		/*$( '.mysticky-welcomebar-submit input#submit' ).on( 'click', function(e){
 			var welcomebar_action = $('.mysticky-welcomebar-action').find(":selected").val();
 			var poptin_popup_link = $('#mysticky_welcomebar_poptin_popup_link').val().toLowerCase();
 			var welcome_save_anyway = $('#welcome_save_anyway').val();
@@ -390,7 +408,7 @@
 				});
 			}
 			//return false;
-		} );
+		} );*/
 
 	});
 	$( window ).on('load', function(){
@@ -409,13 +427,299 @@
 				jQuery(".mysticky-welcomebar-setting-right").css("margin-top", "0");
 			}
 		}
+		var position_screen = (isRtl == 1 ) ? 'left' : 'right';
 		if ( ( mysticky_welcomebar_form_pos + 32 ) < $(window).scrollTop() ) {
 			$( '.mysticky-welcomebar-setting-right' ).css( 'position', 'fixed' );
-			$( '.mysticky-welcomebar-setting-right' ).css( 'right', '70px' );
+			$( '.mysticky-welcomebar-setting-right' ).css( position_screen, '70px' );
 		} else {
 			$( '.mysticky-welcomebar-setting-right' ).css( 'position', 'absolute' );
-			$( '.mysticky-welcomebar-setting-right' ).css( 'right', '50px' );
+			$( '.mysticky-welcomebar-setting-right' ).css( position_screen, '50px' );
 		}
 	}
+	
+	jQuery(document).on("click",".mystickymenu-delete-widget",function(e){
+		e.preventDefault();
+		
+		var widget_id = jQuery(this).data("widget-id");
+		jQuery("#widget-delete-dialog-"+widget_id).show();
+		jQuery("#mystickymenu-delete-popup-overlay-"+widget_id).show();
+	});
+	
+	jQuery(document).on("click",".btn-delete",function(e){
+		e.preventDefault();
+		var delWidId = jQuery(this).data("id");
+		jQuery.ajax({
+			url: ajaxurl,
+			type:'post',
+			data: 'action=stickymenu_widget_delete&widget_id=' + delWidId + '&widget_delete=1&wpnonce=' + mystickymenu.ajax_nonce,
+			success: function( data ){					
+				$( '#stickymenu-widget-' + delWidId ).remove();
+				setTimeout('location.reload()', 500);
+			},
+		});
+	});
+	
+	
+	jQuery(document).on("click",".btn-delete-cancel",function(e){
+		e.preventDefault();
+		var id = jQuery(this).data("id");
+		jQuery("#widget-delete-dialog-"+id).hide();
+		jQuery("#mystickymenu-delete-popup-overlay-"+id).hide();
+	});
+	
+	
+	
+	jQuery(document).on("click",".mystickymenu-widget-enabled",function(){
+		var widget_id = $(this).data('id');
+		if(jQuery(this).prop("checked") != true){
+			jQuery('#widget-status-dialog-' + widget_id).show();
+			jQuery('#mystickymenu-status-popup-overlay-' + widget_id).show();
+		}else{
+			var widget_status = 1;
+			set_widget_status( widget_id, widget_status );	
+		}
+	});
+	
+	jQuery(document).on("click",".btn-turnoff-status",function(e){
+		e.preventDefault();
+		var widget_id = $(this).data('id');
+		var widget_status = 0;
+		set_widget_status( widget_id, widget_status );
+	});	
+	
+	
+	jQuery(document).on("click",".btn-nevermind-status",function(e){
+		e.preventDefault();
+		var widget_id = $(this).data('id');
+		var widget_status = 1;
+		set_widget_status( widget_id, widget_status );
+		jQuery("#mystickymenu-widget-enabled-"+widget_id).prop('checked', true)
+		
+	});	
+	
+	
+	jQuery(document).on("click",".mystickymenupopup-overlay",function(e){
+		e.preventDefault();
+		
+		if(jQuery(this).data("fromoverlay") == 'welcombar_delete'){
+			jQuery(this).hide();
+			console.log("#mystickymenu-delete-popup-overlay-"+jQuery(this).data('id'));
+			var delId = jQuery(this).data('id');
+			jQuery('#widget-delete-dialog-'+delId).hide();
+			
+		}else{
+			var widget_id = $(this).data('id');
+			var widget_status = 1;
+			set_widget_status( widget_id, widget_status );
+			jQuery("#mystickymenu-widget-enabled-"+widget_id).prop('checked', true);
+		}
+		
+	});	
+	
+	
+	
+	
+	function set_widget_status( widget_id, widget_status ) {
+		jQuery.ajax({
+			url: ajaxurl,
+			type:'post',
+			data: 'action=mystickymenu_widget_status&widget_id='+widget_id+'&widget_status=' + widget_status +'&wpnonce=' + mystickymenu.ajax_nonce,
+			success: function( data ){
+				$('#widget-status-dialog-' + widget_id).hide();
+				$('#mystickymenu-status-popup-overlay-' + widget_id).hide();
+			},
+		});
+	}
+	
+	jQuery(document).on("click","#close-first-popup",function(){
+		jQuery('.first-widget-popup').hide();
+		jQuery('.mystickymenupopup-overlay').hide();
+	});
+	
+	jQuery(document).on("click","#first_widget_overlay",function(){
+		jQuery('.first-widget-popup').hide();
+		jQuery(this).hide();
+	});
+	
+	
+	
+	jQuery(document).on("click","#btn-config-disable",function(e){
+		e.preventDefault();
+		jQuery("#stickymenu_status_popupbox").show();
+		jQuery("#stickymenuconfig-overlay-popup").show();
+	});
+	
+	jQuery(document).on("click","#stickymenuconfig-overlay-popup",function(){
+		jQuery("#stickymenu_status_popupbox").hide();
+		jQuery(this).hide();
+	});
+	
+	jQuery(document).on("click","#stickymenu_status_turnoff",function(e){
+		e.preventDefault();
+		var stickymenu_status = 0;
+		set_stickymenu_status( stickymenu_status );
+	});	
+	
+	jQuery(document).on("click","#stickymenu_status_nevermind",function(e){
+		e.preventDefault();
+		jQuery("#stickymenu_status_popupbox").hide();
+		jQuery("#stickymenuconfig-overlay-popup").hide();
+	});	
+	
+	function set_stickymenu_status( stickymenu_status ){
+		jQuery.ajax({
+			url: ajaxurl,
+			type:'post',
+			data: 'action=stickymenu_status_update&stickymenu_status=' + stickymenu_status +'&wpnonce=' + mystickymenu.ajax_nonce,
+			success: function( data ){
+				location.reload();
+			},
+		});
+	}
+	
+	jQuery(document).on("click",".close-button",function(){
+		if(jQuery(this).data("from") == 'welcome-bar-status'){
+			var id = jQuery(this).data("id");
+			jQuery("#widget-status-dialog-"+id).hide();
+			jQuery("#mystickymenu-status-popup-overlay-"+id).hide();
+			var widget_status = 1;
+			set_widget_status( id, widget_status );
+			jQuery("#mystickymenu-widget-enabled-"+id).prop('checked', true)
+			
+		}else if( jQuery(this).data("from") == "stickymenu-status"){
+			jQuery("#stickymenu_status_popupbox").hide();
+			jQuery("#stickymenuconfig-overlay-popup").hide();
+			
+		}else if( jQuery(this).data("from") == "stickymenu-confirm" ){
+			jQuery("#mysticky-sticky-save-confirm").hide();
+			jQuery("#stickymenu-option-overlay-popup").hide();
+		}else if( jQuery(this).data("from") == "welcombar-confirm" ){
+			jQuery("#welcomebar-save-confirm").hide();	
+			jQuery("#welcombar-sbmtvalidation-overlay-popup").hide();
+		}else{
+			var id = jQuery(this).data("id");
+			jQuery("#widget-delete-dialog-"+id).hide();
+			jQuery("#mystickymenu-delete-popup-overlay-"+id).hide();
+		}
+	});
+	
+	
+	jQuery(document).on("click","#stickymenu-option-overlay-popup",function(){
+		$("#mysticky-sticky-save-confirm").hide();
+		$(this).hide();
+	});
+	
+	
+	jQuery(document).on("click","#welcombar-sbmtvalidation-overlay-popup",function(){
+		$("#welcomebar-save-confirm").hide();
+		$(this).hide();
+	});
+	
+	
+	jQuery(document).on("change","#mysticky-welcomebar-countdown-enabled",function(){
+		var url = jQuery(this).data("url");
+		jQuery(this).prop('checked',false);
+		window.open(url, '_blank');
+	});
+	
+	jQuery(document).on("click",".btn-save-stickymenu" , function(event){
+		if ( $( '#mysticky-stickymenu-form-enabled' ).prop( 'checked' ) == false && $('#save_stickymenu').val() == "" ) {
+			event.preventDefault();
+			$("#mysticky-sticky-save-confirm").show();
+			$("#stickymenu-option-overlay-popup").show();
+			
+			$('#stickymenu_status_ok').attr('data-clickfrom', 'save');
+			$('#stickymenu_status_dolater').attr('data-clickfrom', 'save');
+		}
+	});
+	
+	jQuery(document).on("click",".save_view_dashboard" , function(event){
+		if ( $( '#mysticky-stickymenu-form-enabled' ).prop( 'checked' ) == false && $('#save_stickymenu').val() == "" ) {
+			event.preventDefault();
+			$("#mysticky-sticky-save-confirm").show();
+			$("#stickymenu-option-overlay-popup").show();
+			
+			$('#stickymenu_status_ok').attr('data-clickfrom', 'dashboard');
+			$('#stickymenu_status_dolater').attr('data-clickfrom', 'dashboard');
+		}
+	});
+	
+	jQuery(document).on("click","#stickymenu_status_ok",function(){
+		//jQuery("html, body").animate({ scrollTop: "20" });
+		var clickFrom = $(this).data("clickfrom");
+		$('#save_stickymenu').val("1");
+		$( '#mysticky-stickymenu-form-enabled' ).prop( 'checked' , true )
+		$("#mysticky-sticky-save-confirm").hide();
+		$("#stickymenu-option-overlay-popup").hide();
+		if(clickFrom == 'dashboard'){
+			$('.save_view_dashboard').trigger("click");
+		}else{
+			$('.btn-save-stickymenu').trigger("click");	
+		}
+	});
 
+	jQuery(document).on("click","#stickymenu_status_dolater",function(){
+		var clickFrom = $(this).data("clickfrom");
+		$('#save_stickymenu').val("1");
+		if(clickFrom == 'dashboard'){
+			$('.save_view_dashboard').trigger("click");
+		}else{
+			$('.btn-save-stickymenu').trigger("click");	
+		}
+	});
+	
+	jQuery(document).on( 'click','.welcombar_save', function(e){
+		
+		if ( $( 'input[name="mysticky_option_welcomebar[mysticky_welcomebar_enable]"]' ).prop( 'checked' ) == false && $( 'input#save_welcome_bar' ).val() == '' ) {
+			e.preventDefault();
+			$("#welcomebar-save-confirm").show();	
+			$("#welcombar-sbmtvalidation-overlay-popup").show();
+			$("#welcombar_sbmtbtn_off").attr("data-clickfrom",'save_button');	
+			$("#welcomebar_yes_sbmtbtn").attr("data-clickfrom",'save_button');
+		}
+	});
+	
+	
+	jQuery(document).on( 'click','.save_view_dashboard', function(e){
+		
+		if ( $( 'input[name="mysticky_option_welcomebar[mysticky_welcomebar_enable]"]' ).prop( 'checked' ) == false && $( 'input#save_welcome_bar' ).val() == '' ) {
+			e.preventDefault();
+			$("#welcomebar-save-confirm").show();	
+			$("#welcombar-sbmtvalidation-overlay-popup").show();	
+			$("#welcombar_sbmtbtn_off").attr("data-clickfrom",'save_dashboard_button');	
+			$("#welcomebar_yes_sbmtbtn").attr("data-clickfrom",'save_dashboard_button');
+		}
+	});
+			
+	jQuery(document).on("click","#welcomebar_yes_sbmtbtn",function(){
+		
+		var clickFrom = $(this).data("clickfrom");
+		
+		$("#welcomebar-save-confirm").hide();	
+		$("#welcombar-sbmtvalidation-overlay-popup").hide();
+		$( 'input#welcome_save_anyway' ).val('1');
+		$( 'input#save_welcome_bar' ).val('1');	
+		$( 'input[name="mysticky_option_welcomebar[mysticky_welcomebar_enable]"]' ).prop( 'checked',true );
+		if(clickFrom == 'save_dashboard_button'){
+			$( '.mysticky-welcomebar-submit input.save_view_dashboard' ).trigger('click');	
+		}else{
+			$( '.mysticky-welcomebar-submit input.welcombar_save' ).trigger('click');		
+		}
+	});
+			
+	jQuery(document).on("click","#welcombar_sbmtbtn_off",function(){
+		var clickFrom = $(this).data("clickfrom");
+		
+		$("#welcomebar-save-confirm").hide();	
+		$("#welcombar-sbmtvalidation-overlay-popup").hide();	
+		$( 'input#welcome_save_anyway' ).val('1');
+		$( 'input#save_welcome_bar' ).val('1');
+		
+		if(clickFrom == 'save_dashboard_button'){
+			$( '.mysticky-welcomebar-submit input.save_view_dashboard' ).trigger('click');	
+		}else{
+			$( '.mysticky-welcomebar-submit input.welcombar_save' ).trigger('click');		
+		}
+	});
+	
 })(jQuery);

@@ -10,7 +10,56 @@
         factory(jQuery);
     }
 }(function ($, undefined) {
-    var priceOptions = {"50_websites":{"1_year":{"price":79,"link":"https:\/\/go.premio.io\/?edd_action=add_to_cart&download_id=2199&edd_options[price_id]=3"},"2_year":{"price":125,"link":"https:\/\/go.premio.io\/?edd_action=add_to_cart&download_id=2199&edd_options[price_id]=15"},"lifetime":{"price":199,"link":"https:\/\/go.premio.io\/?edd_action=add_to_cart&download_id=2199&edd_options[price_id]=9"}},"500_websites":{"1_year":{"price":139,"link":"https:\/\/go.premio.io\/?edd_action=add_to_cart&download_id=2199&edd_options[price_id]=16"},"2_year":{"price":225,"link":"https:\/\/go.premio.io\/?edd_action=add_to_cart&download_id=2199&edd_options[price_id]=17"},"lifetime":{"price":359,"link":"https:\/\/go.premio.io\/?edd_action=add_to_cart&download_id=2199&edd_options[price_id]=18"}},"1000_websites":{"1_year":{"price":199,"link":"https:\/\/go.premio.io\/?edd_action=add_to_cart&download_id=2199&edd_options[price_id]=19"},"2_year":{"price":315,"link":"https:\/\/go.premio.io\/?edd_action=add_to_cart&download_id=2199&edd_options[price_id]=20"},"lifetime":{"price":499,"link":"https:\/\/go.premio.io\/?edd_action=add_to_cart&download_id=2199&edd_options[price_id]=21"}}};
+    var priceOptions = {
+            "50_websites": {
+                "1_year": {
+                    "price": 99,
+					"per_month":8.5,
+                    "link": "https://go.premio.io/?edd_action=add_to_cart&download_id=2199&edd_options[price_id]=28"
+                },
+                "2_year": {
+                    "price": 149,
+					"per_month":6.5,
+                    "link": "https://go.premio.io/?edd_action=add_to_cart&download_id=2199&edd_options[price_id]=29"
+                },
+                "lifetime": {
+                    "price": 249,
+                    "link": "https://go.premio.io/?edd_action=add_to_cart&download_id=2199&edd_options[price_id]=30"
+                }
+            },
+            "500_websites": {
+                "1_year": {
+                    "price": 179,
+					"per_month":15,
+                    "link": "https://go.premio.io/?edd_action=add_to_cart&download_id=2199&edd_options[price_id]=31"
+                },
+                "2_year": {
+                    "price": 269,
+					"per_month":11.5,
+                    "link": "https://go.premio.io/?edd_action=add_to_cart&download_id=2199&edd_options[price_id]=32"
+                },
+                "lifetime": {
+                    "price": 499,
+                    "link": "https://go.premio.io/?edd_action=add_to_cart&download_id=2199&edd_options[price_id]=33"
+                }
+            },
+            "1000_websites": {
+                "1_year": {
+                    "price": 249,
+					"per_month":21,
+                    "link": "https://go.premio.io/?edd_action=add_to_cart&download_id=2199&edd_options[price_id]=34"
+                },
+                "2_year": {
+                    "price": 375,
+					"per_month":16,
+                    "link": "https://go.premio.io/?edd_action=add_to_cart&download_id=2199&edd_options[price_id]=35"
+                },
+                "lifetime": {
+                    "price": 619,
+                    "link": "https://go.premio.io/?edd_action=add_to_cart&download_id=2199&edd_options[price_id]=36"
+                }
+            }
+        };
     $(document).ready(function($){
         $('.my-color-field').wpColorPicker();
         $(document).on('click', '.sticky-header-upgrade-now', function(e){
@@ -41,10 +90,15 @@
                 minimumResultsForSearch: -1
             });
         }
+		
+		
         $(document).on("change", ".multiple-options", function(){
+			
             priceText = $(this).find("option:selected").attr("data-header");
             thisValue = $(this).val();
             thisPrice = $(this).find("option:selected").attr("data-price");
+			thisperMonth = $(this).find("option:selected").attr("data-per-month");
+			console.log("thisperMonth == " + thisperMonth);
             if(!$(this).hasClass("has-multiple-websites")) {
                 $(this).closest(".price-table").find("a.cart-link").attr("href", thisValue);
                 $(this).closest(".price-table").find(".plan-price").text("$" + thisPrice);
@@ -52,26 +106,40 @@
                 var webOption = $(".multiple-web-options").val();
                 var priceSettings = priceOptions[webOption];
                 var yearPlan = $(".multiple-options.has-multiple-websites option:selected").attr("data-option");
-                if(priceSettings[yearPlan] != undefined) {
+               
+			   if(priceSettings[yearPlan] != undefined) {
                     priceSettings = priceSettings[yearPlan];
                     thisValue = priceSettings.link;
                     thisPrice = priceSettings.price;
+					thisperMonth = priceSettings.per_month;
                 }
             }
             thisOption = $(this).find("option:selected").attr("data-option");
             if(thisOption == "1_year") {
                 thisPrice = thisPrice+"<span>/year</span>";
+				per_month = "Less than <b>$" + thisperMonth + "</b>/mo · <b>Billed Annually</b>";
                 priceText = "Renewals for <b>25% off</b>";
             } else if(thisOption == "2_year") {
                 thisPrice = thisPrice+"<span>/2 years</span>";
+				per_month = "Less than <b>$" + thisperMonth + "</b>/mo · <b>Billed Annually</b>";
                 priceText = "Renewals for <b>25% off</b>";
             } else {
                 thisPrice = thisPrice+"<span>/lifetime</span>";
+				per_month = "<b>Best value</b>";
                 priceText = "For lifetime";
             }
+			
             $(this).closest(".price-table").find("a.cart-link").attr("href", thisValue);
             $(this).closest(".price-table").find(".plan-price").html("$" + thisPrice);
             $(this).closest(".price-table").find(".price-offer").html(priceText);
+            $(this).closest(".price-table").find(".price-permonth").html(per_month);
+			
+			if ( per_month == '' ) {
+				$(this).closest(".price-table").find(".price-permonth").hide();
+			} else {
+				$(this).closest(".price-table").find(".price-permonth").show();
+			}
+			
         });
 
         $(document).on("change", ".multiple-web-options", function(){

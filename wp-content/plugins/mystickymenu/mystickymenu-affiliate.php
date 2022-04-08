@@ -127,7 +127,7 @@ class MyStickyMenu_affiliate_program {
         <div class="notice notice-info premio-affiliate <?php echo esc_attr($this->plugin) ?>-premio-affiliate">
             <p>Hi there, you've been using My Sticky Menu for a while now. Do you know that <b>My Sticky Menu</b> has an affiliate program? Join now and get <b>25% lifetime commission</b> <a href="javascript:;" class="dismiss-btn"><span class="dashicons dashicons-no-alt"></span> Dismiss</a></p>
             <div class="clear clearfix"></div>
-            <a class="button button-primary affiliate-btn" target="_blank" href="https://premio.io/affiliates/?utm_source=inapp&plugin=mystickymenu&domain=<?php echo $_SERVER['HTTP_HOST'] ?>">Tell me more <span class="dashicons dashicons-arrow-right-alt"></span></a>
+            <a class="button button-primary affiliate-btn" target="_blank" href="https://premio.io/affiliates/?utm_source=inapp&plugin=mystickymenu&domain=<?php echo esc_attr($_SERVER['HTTP_HOST']); ?>">Tell me more <span class="dashicons dashicons-arrow-right-alt"></span></a>
         </div>
         <div class="affiliate-popup">
             <div class="affiliate-popup-content">

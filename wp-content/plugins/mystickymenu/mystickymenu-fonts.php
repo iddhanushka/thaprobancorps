@@ -3,6 +3,8 @@ if ( !function_exists('myStickymenu_fonts')) {
 	function myStickymenu_fonts(){
 		return array(
 				// System fonts.
+				'Inherit' => 'Default',
+				'System Stack' => 'Default',
 				'Arial' => 'Default',
 				'Tahoma' => 'Default',
 				'Verdana' => 'Default',

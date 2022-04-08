@@ -26,7 +26,7 @@ define( 'DB_NAME', 'thaprobancorps_db' );
 define( 'DB_USER', 'thaprobancorps_user' );
 
 /** MySQL database password */
-define( 'DB_PASSWORD', 't3sEXNqzql1*mWrd' );
+define( 'DB_PASSWORD', '9PL/@EvyR6(@SXlp' );
 
 /** MySQL hostname */
 define( 'DB_HOST', 'localhost' );
