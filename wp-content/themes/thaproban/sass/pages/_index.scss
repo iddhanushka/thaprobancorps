@@ -306,6 +306,11 @@
         margin-bottom: 0px;
         text-align: justify;
       }
+
+      a.continue-reading {
+        color: #999;
+        font-size: 14px;
+      }
     }
   }
 }
@@ -340,6 +345,11 @@
         font-size: 15px;
         font-weight: normal;
         padding-right: 50px;
+        text-align: left;
+
+        &:last-of-type {
+          text-align: justify;
+        }
       }
 
       a {
@@ -707,11 +717,12 @@
 
   #security-team .team-info .best-security-team a {
     font-size: 16px;
-    margin: auto;
+    margin: unset;
   }
 
   #security-team .team-info .best-security-team h1 {
     font-size: 35px;
+    text-align: left;
   }
 
   #security-team .team-info .best-security-team {
@@ -721,10 +732,10 @@
   }
 
   #security-team {
-    height: 370px;
+    height: 540px;
   }
   #security-team .cover-img {
-    height: 370px;
+    height: 540px;
   }
 
   #security-team .cover-img img {
@@ -1153,10 +1164,10 @@
   }
 
   #security-team {
-    height: 370px;
+    height: 570px;
   }
   #security-team .cover-img {
-    height: 370px;
+    height: 570px;
   }
 
   #security-team .cover-img img {
@@ -1173,12 +1184,12 @@
   #security-team .team-info .best-security-team h1 {
     font-size: 18px;
     padding-right: 0;
-    text-align: center;
+    text-align: left;
   }
 
   #security-team .team-info .best-security-team p {
     font-size: 14px;
-    text-align: center;
+    text-align: left;
     padding-right: 0;
   }
 

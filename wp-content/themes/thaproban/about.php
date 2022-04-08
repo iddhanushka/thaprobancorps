@@ -45,7 +45,7 @@
                             <img src="<?php echo get_template_directory_uri(); ?>/img/ceo.jpg" alt="">
                             <blockquote class="blockquote text-center">
                                 <p class="mb-0">Hello!</p>
-                                <p class="mb-0">"Join hands with us to experience our client friendly dedicated services and we are happy to serve you to ensure all your security needs."</p>
+                                <p class="mb-0">"Join hands with us to experience our client friendly dedicated services and we are happy to serve you ensure all your security needs."</p>
                                 <span>Mr. Amal Patiranege</span>
                                 <div class="blockquote-footer">CEO, <cite title="Source Title">Thaproban Corps.</cite></div>
                             </blockquote>

@@ -153,7 +153,7 @@
                                                     </div>
 
                                                     <div class="content">
-                                                        <p>The Director himself is an ex Air Force commissioned officer with an experience of almost 8 years in the service whose expecting to maintain high standards off the service.</p>
+                                                        <p>The Director himself is an ex Air Force commissioned officer with an experience of almost 8 years in the service whose expecting to maintain high standards of the service.</p>
                                                     </div>
                                                 </li>
                                             </ul>
@@ -166,7 +166,7 @@
                                                     </div>
 
                                                     <div class="content">
-                                                        <p>A company with and unblemished profile in the industry over the passed decade.</p>
+                                                        <p>A company with an unblemished profile in the industry over the past decade.</p>
                                                     </div>
                                                 </li>
                                             </ul>
@@ -238,7 +238,7 @@
                             <div class="card-content">
                                 <span><i class="far fa-calendar-alt"></i> <?php the_date(); ?></span>
                                 <h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
-                                <p><?php echo wp_trim_words(get_the_content(), '22'); ?></p>
+                                <p><?php echo wp_trim_words(get_the_content(), '22'); ?><a href="<?php the_permalink(); ?>" class="continue-reading"> Continue reading</a></p>
                             </div>
                         </div>
                     </div>
@@ -267,9 +267,8 @@
                                 <p><strong>Be Bold:</strong> be proactive, make decisions, take responsibility, try new things.</p>
                                 <p><strong>Be Curious:</strong> ask questions, do some research, learn new techniques, study our clients and their industries.</p>
                                 <p><strong>Be Together:</strong> play an active role in the team, support your colleagues, collaborate, have fun.</p>
-                                <!-- <p>Be Connected:  meet people, make contacts, build relationships, see the bigger picture.</p> -->
                                 <p><strong>Be Better:</strong> look for ways to improve, challenge yourself, never stop learning, strive to be the best.</p>
-                                <p>Building, developing, training, retaining and engaging the Rostrum team is a daily commitment. We work hard every day to make sure that our people are supported and empowered to deliver exceptional results for our clients.</p>
+                                <p>Building, developing, training, retaining and engaging the rostrum team is a daily commitment. We work hard every day to make sure that our people are supported and empowered to deliver exceptional results for our clients.</p>
                                 <a href="<?php echo get_site_url(); ?>/contact">Join us</a>
                             </div>
                         </div>
