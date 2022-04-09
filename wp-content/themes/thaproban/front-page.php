@@ -236,7 +236,7 @@
                             </div>
 
                             <div class="card-content">
-                                <span><i class="far fa-calendar-alt"></i> <?php the_date(); ?></span>
+                                <span><i class="far fa-calendar-alt"></i> <?php echo get_the_date(); ?></span>
                                 <h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
                                 <p><?php echo wp_trim_words(get_the_content(), '22'); ?><a href="<?php the_permalink(); ?>" class="continue-reading"> Continue reading</a></p>
                             </div>
