@@ -1,3 +1,4 @@
-./breeze-config
-./ai1wm-backups
-./cache
+wp-content/breeze-config
+wp-content/ai1wm-backups
+wp-content/cache
+wp-content/themes/thaproban/.sass-cache
