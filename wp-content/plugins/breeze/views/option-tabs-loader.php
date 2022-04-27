@@ -25,8 +25,8 @@ class Breeze_Tab_Loader {
 
 		$requested_tab = $_GET['request_tab'];
 
-		if ( ! in_array( $requested_tab, $accepted_tabs, true ) ) {
-			echo '<h3>The requested tab does not exist</h3>';
+		if ( ! in_array( $requested_tab, $accepted_tabs, true ) || true === breeze_is_restricted_access( true ) ) {
+			die( '<h3>The requested tab does not exist</h3>' );
 		}
 		ob_start();
 		Breeze_Admin::render( $requested_tab );

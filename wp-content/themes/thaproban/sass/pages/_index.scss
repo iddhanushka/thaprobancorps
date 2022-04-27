@@ -98,6 +98,7 @@
       width: 100%;
       max-width: 25%;
       margin-bottom: 15px;
+      border-radius: 50%;
     }
 
     h2 {
@@ -129,7 +130,7 @@
 #welcome-thaproband {
   padding: 70px 0;
   background: #fbfbfb;
-  background-image: url("../img/security-guard.png");
+  background-image: url("../img/security-guard-cc.png");
   background-repeat: no-repeat;
   background-position-x: 90%;
   background-size: 35%;
@@ -1195,7 +1196,7 @@
 
   #security-team .team-info .best-security-team a {
     font-size: 14px;
-    margin: auto;
+    // margin: auto;
     margin-top: 30px;
   }
 

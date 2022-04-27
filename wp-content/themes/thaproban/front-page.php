@@ -57,7 +57,6 @@
             </div>
         </div>
     </div>
-
 </section>
 
 <section id="best-security-sl">
@@ -78,7 +77,7 @@
                         <div class="row">
                             <div class="col-lg-4 col-md-4">
                                 <div class="security-services" data-aos="zoom-in" data-aos-duration="1500">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/img/guard.png" alt="guard">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/img/ci-cc.jpg" alt="guard">
                                     <h2>Commercial & Industrial</h2>
                                     <p>We are passionately committed to help our customers to achieve their commercial and industrial safety and security goals.</p>
                                 </div>
@@ -86,7 +85,7 @@
 
                             <div class="col-lg-4 col-md-4">
                                 <div class="security-services" data-aos="zoom-in" data-aos-duration="1500">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/img/guard.png" alt="guard">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/img/bg-and-cg-cc.jpg" alt="guard">
                                     <h2>Body Guards & Cash Guards</h2>
                                     <p>Our highly trained and experienced body guards operate under a strict code of conduct while maintaining complete client confidentiality.</p>
                                 </div>
@@ -94,7 +93,7 @@
 
                             <div class="col-lg-4 col-md-4">
                                 <div class="security-services investigations" data-aos="zoom-in" data-aos-duration="1500">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/img/guard.png" alt="guard">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/img/iu-cc.jpg" alt="guard">
                                     <h2>Investigations & Audits</h2>
                                     <p>Investigate financial crimes, unauthorized access, violations of orders and instructions promulgated, unauthorized use of official properties etc.</p>
                                 </div>
@@ -135,7 +134,7 @@
                     <div class="col-lg-8">
                         <div class="our-best" data-aos="fade-up"  data-aos-duration="1500">
                             <h1>We Are There For You</h1>
-                            <p>Our well trained, dedicated and client friendly security staff working around the clock is a friend indeed and a friend in need.</p>
+                            <p>Our well trained, dedicated and client friendly security staff working around the clock is a friend in need and a friend indeed.</p>
                         </div>
                     </div>
                 </div>
@@ -153,7 +152,7 @@
                                                     </div>
 
                                                     <div class="content">
-                                                        <p>The Director himself is an ex Air Force commissioned officer with an experience of almost 8 years in the service whose expecting to maintain high standards of the service.</p>
+                                                        <p>The Director himself is an ex Air Force commissioned officer with an experience of almost 8 years in the service whose expecting to maintain high standards in the security industry.</p>
                                                     </div>
                                                 </li>
                                             </ul>

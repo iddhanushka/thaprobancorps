@@ -45,9 +45,12 @@ if ( ! class_exists( 'Breeze_Incompatibility_Plugins' ) ) {
 
 		public function compatibility_warning_close() {
 			$response            = array();
-			$response['success'] = true;
-			update_option( 'breeze_hide_notice', 'yes', 'no' );
-
+			$response['success'] = false;
+			// Only administrator can close this notice.
+			if ( false === breeze_is_restricted_access( true ) ) {
+				$response['success'] = true;
+				update_option( 'breeze_hide_notice', 'yes', 'no' );
+			}
 			wp_send_json( $response );
 		}
 
@@ -182,11 +185,11 @@ if ( ! class_exists( 'Breeze_Incompatibility_Plugins' ) ) {
 								}
 								// Build data for the notice HTML
 								$final_list[] = array(
-									'warning_message'      => $message,
-									'safe_version_message' => ( ! empty( trim( $details['safe_version_message'] ) ) ? $details['safe_version_message'] : '' ),
+									'warning_message'           => $message,
+									'safe_version_message'      => ( ! empty( trim( $details['safe_version_message'] ) ) ? $details['safe_version_message'] : '' ),
 									'display_deactivate_button' => $show_deactivate,
-									'deactivate_url'       => wp_nonce_url( 'plugins.php?action=deactivate&amp;plugin=' . urlencode( $plugin ) . '&amp;plugin_status=' . $context . '&amp;paged=' . $page . '&amp;s=' . $s, 'deactivate-plugin_' . $plugin ),
-									'is_network_only'      => $network_only_text,
+									'deactivate_url'            => wp_nonce_url( 'plugins.php?action=deactivate&amp;plugin=' . urlencode( $plugin ) . '&amp;plugin_status=' . $context . '&amp;paged=' . $page . '&amp;s=' . $s, 'deactivate-plugin_' . $plugin ),
+									'is_network_only'           => $network_only_text,
 								);
 
 							}
@@ -267,79 +270,79 @@ if ( ! class_exists( 'Breeze_Incompatibility_Plugins' ) ) {
 				 * If warning_version has the value -1, the compare_sign will be ignored.
 				 * Current version of installed plugin compared to warning_version
 				 */
-				'w3-total-cache/w3-total-cache.php'   => array(
+				'w3-total-cache/w3-total-cache.php'                 => array(
 					'warning_message'      => '',
 					'warning_version'      => - 1,
 					'compare_sign'         => '>',
 					'safe_version_message' => '',
 				),
-				'wp-super-cache/wp-cache.php'         => array(
+				'wp-super-cache/wp-cache.php'                       => array(
 					'warning_message'      => '',
 					'warning_version'      => - 1,
 					'compare_sign'         => '>',
 					'safe_version_message' => '',
 				),
-				'litespeed-cache/litespeed-cache.php' => array(
+				'litespeed-cache/litespeed-cache.php'               => array(
 					'warning_message'      => '',
 					'warning_version'      => '2.0',
 					'compare_sign'         => '>=', // Current version of installed plugin compared to warning_version
 					'safe_version_message' => 'Version (1.0 - 1.9) are compatible.',
 				),
-				'quick-cache/quick-cache.php'         => array(
+				'quick-cache/quick-cache.php'                       => array(
 					'warning_message'      => '',
 					'warning_version'      => - 1,
 					'compare_sign'         => '>',
 					'safe_version_message' => '',
 				),
-				'hyper-cache/plugin.php'              => array(
+				'hyper-cache/plugin.php'                            => array(
 					'warning_message'      => '',
 					'warning_version'      => - 1,
 					'compare_sign'         => '>',
 					'safe_version_message' => '',
 				),
-				'hyper-cache-extended/plugin.php'     => array(
+				'hyper-cache-extended/plugin.php'                   => array(
 					'warning_message'      => '',
 					'warning_version'      => - 1,
 					'compare_sign'         => '>',
 					'safe_version_message' => '',
 				),
-				'wp-fast-cache/wp-fast-cache.php'     => array(
+				'wp-fast-cache/wp-fast-cache.php'                   => array(
 					'warning_message'      => '',
 					'warning_version'      => - 1,
 					'compare_sign'         => '>',
 					'safe_version_message' => '',
 				),
-				'flexicache/wp-plugin.php'            => array(
+				'flexicache/wp-plugin.php'                          => array(
 					'warning_message'      => '',
 					'warning_version'      => - 1,
 					'compare_sign'         => '>',
 					'safe_version_message' => '',
 				),
-				'wp-fastest-cache/wpFastestCache.php' => array(
+				'wp-fastest-cache/wpFastestCache.php'               => array(
 					'warning_message'      => '',
 					'warning_version'      => - 1,
 					'compare_sign'         => '>',
 					'safe_version_message' => '',
 				),
-				'lite-cache/plugin.php'               => array(
+				'lite-cache/plugin.php'                             => array(
 					'warning_message'      => '',
 					'warning_version'      => - 1,
 					'compare_sign'         => '>',
 					'safe_version_message' => '',
 				),
-				'gator-cache/gator-cache.php'         => array(
+				'gator-cache/gator-cache.php'                       => array(
 					'warning_message'      => '',
 					'warning_version'      => - 1,
 					'compare_sign'         => '>',
 					'safe_version_message' => '',
 				),
-				'wp-http-compression/wp-http-compression.php' => array(
+				'wp-http-compression/wp-http-compression.php'       => array(
 					'warning_message'      => '',
 					'warning_version'      => - 1,
 					'compare_sign'         => '>',
 					'safe_version_message' => '',
 				),
-				'wordpress-gzip-compression/ezgz.php' => array(
+				'wordpress-gzip-compression/ezgz.php'               => array(
 					'warning_message'      => '',
 					'warning_version'      => - 1,
 					'compare_sign'         => '>',
@@ -351,7 +354,7 @@ if ( ! class_exists( 'Breeze_Incompatibility_Plugins' ) ) {
 					'compare_sign'         => '>',
 					'safe_version_message' => '',
 				),
-				'speed-booster-pack/speed-booster-pack.php' => array(
+				'speed-booster-pack/speed-booster-pack.php'         => array(
 					'warning_message'      => '',
 					'warning_version'      => - 1,
 					'compare_sign'         => '>',

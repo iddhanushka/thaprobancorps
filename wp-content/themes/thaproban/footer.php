@@ -42,7 +42,7 @@ $container = get_theme_mod( 'thaproband_container_type' );
 						<h1>Our services</h1>
 						<ul>
 							<li><a href="<?php echo get_site_url(); ?>/services">Industrial security</a></li>
-							<li><a href="<?php echo get_site_url(); ?>/services?service=traditional">Traditional & Ceremonial</a></li>
+							<li><a href="<?php echo get_site_url(); ?>/services?service=traditional">Traditional & ceremonial</a></li>
 							<li><a href="<?php echo get_site_url(); ?>/services?service=body_guard">Body guards</a></li>
 							<li><a href="<?php echo get_site_url(); ?>/services?service=investigations">Investigations & audits</a></li>
 							<li><a href="<?php echo get_site_url(); ?>/services??service=cctv">CCTV cameras</a></li>
@@ -65,7 +65,7 @@ $container = get_theme_mod( 'thaproband_container_type' );
 							<li><i class="fas fa-envelope"></i><a href="mailto:thaprobancorps@gmail.com">thaprobancorps@gmail.com</a></li>
 							<li>
 								<ul class="social-media">
-									<li><a href="https://www.facebook.com/thaprobandc.lk/" target="blank"><i class="fab fa-facebook-square"></i></a></li>
+									<li><a href="https://www.facebook.com/thaprobancorps.lk/" target="blank"><i class="fab fa-facebook-square"></i></a></li>
 									<li><a href="skype:.cid4d855e46c2233298?call"><i class="fab fa-skype"></i></a></li>
 								</ul>
 							</li>

@@ -27,7 +27,7 @@
 
                                     <div class="col-lg-4 col-md-4 order-lg-2 order-sm-1 align-self-center">
                                         <div class="feature-img">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/img/crew1.png" alt="">
+                                            <img src="<?php echo get_template_directory_uri(); ?>/img/crew1-cc.jpg" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -37,7 +37,7 @@
                                 <div class="row">
                                     <div class="col-lg-4 col-md-4 align-self-center">
                                         <div class="feature-img">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/img/crew2.png" alt="">
+                                            <img src="<?php echo get_template_directory_uri(); ?>/img/crew2-cc.jpg" alt="">
                                         </div>
                                     </div>
 
@@ -61,7 +61,7 @@
 
                                     <div class="col-lg-4 col-md-4 order-lg-2 order-sm-1 align-self-center">
                                         <div class="feature-img">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/img/crew3.png" alt="">
+                                            <img src="<?php echo get_template_directory_uri(); ?>/img/crew3-cc.jpg" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -71,7 +71,7 @@
                                 <div class="row">
                                     <div class="col-lg-4 col-md-4 align-self-center">
                                         <div class="feature-img">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/img/crew4.png" alt="">
+                                            <img src="<?php echo get_template_directory_uri(); ?>/img/crew4-cc.jpg" alt="">
                                         </div>
                                     </div>
 
@@ -95,7 +95,7 @@
 
                                     <div class="col-lg-4 col-md-4 order-lg-2 order-sm-1 align-self-center">
                                         <div class="feature-img">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/img/crew5.png" alt="">
+                                            <img src="<?php echo get_template_directory_uri(); ?>/img/crew5-cc.jpg" alt="">
                                         </div>
                                     </div>
                                 </div>

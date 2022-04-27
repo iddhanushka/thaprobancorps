@@ -181,15 +181,24 @@ class Breeze_Admin {
 			wp_enqueue_script( 'jquery-ui-widget' );
 
 
-
 		}
 
 		$token_name = array(
-			'breeze_purge_varnish'  => wp_create_nonce( '_breeze_purge_varnish' ),
-			'breeze_purge_database' => wp_create_nonce( '_breeze_purge_database' ),
-			'breeze_purge_cache'    => wp_create_nonce( '_breeze_purge_cache' ),
-			'breeze_save_options'   => wp_create_nonce( '_breeze_save_options' ),
+			'breeze_purge_varnish'  => '',
+			'breeze_purge_database' => '',
+			'breeze_purge_cache'    => '',
+			'breeze_save_options'   => '',
 		);
+
+		// Only create the security nonce if the user has manage_options ( administrator capabilities ).
+		if ( false === breeze_is_restricted_access( true ) ) {
+			$token_name = array(
+				'breeze_purge_varnish'  => wp_create_nonce( '_breeze_purge_varnish' ),
+				'breeze_purge_database' => wp_create_nonce( '_breeze_purge_database' ),
+				'breeze_purge_cache'    => wp_create_nonce( '_breeze_purge_cache' ),
+				'breeze_save_options'   => wp_create_nonce( '_breeze_save_options' ),
+			);
+		}
 
 		wp_localize_script( 'breeze-backend', 'breeze_token_name', $token_name );
 	}
@@ -418,7 +427,7 @@ class Breeze_Admin {
 			'breeze-heartbeat-postedit' => '',
 			'breeze-heartbeat-backend'  => '',
 		);
-		$heartbeat = array_merge( $default_heartbeat, $heartbeat );
+		$heartbeat         = array_merge( $default_heartbeat, $heartbeat );
 
 		$is_advanced = get_option( 'breeze_advanced_settings_120' );
 

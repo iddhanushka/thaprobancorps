@@ -45,7 +45,7 @@ function breeze_get_cache_base_path( $is_network = false, $blog_id_requested = 0
 				$path .= abs( intval( $blog_id ) ) . DIRECTORY_SEPARATOR;
 			}
 		} else {
-			$path  = rtrim( WP_CONTENT_DIR, '/\\' ) . '/cache/breeze/';
+			$path = rtrim( WP_CONTENT_DIR, '/\\' ) . '/cache/breeze/';
 			$path .= abs( intval( $blog_id_requested ) ) . DIRECTORY_SEPARATOR;
 		}
 	} else {
@@ -276,6 +276,54 @@ function breeze_auth_cookie_set_init() {
 	}
 }
 
+/**
+ * Checks the current used data and decide to restrict certain actions
+ * or allow them. ( Such as saving breeze options )
+ *
+ * If $bool_response is true, then you should restrict an action.
+ *
+ * @see https://wordpress.org/support/article/roles-and-capabilities/#administrator
+ * Only administrators have manage_options capability by default.
+ *
+ * @param bool $bool_response If false it throws the forbidden header, if true it will respond with true/false.
+ *
+ * @return bool|void
+ * @since 2.0.3
+ */
+function breeze_is_restricted_access( $bool_response = false ) {
+	// User not authenticated can't change anything.
+	if ( ! is_user_logged_in() ) {
+		if ( false === $bool_response ) {
+			header( 'Status: 403 Forbidden' );
+			header( 'HTTP/1.1 403 Forbidden' );
+			exit;
+		} else {
+			return true;//restrict the access.
+		}
+	}
+
+	// $user          = wp_get_current_user();
+	// $allowed_roles = array( 'administrator' );
+	//  ! array_intersect( $allowed_roles, $user->roles ) ||
+
+	// Only allow administrators to handle Breeze data.
+	// Manage Options is a capability only allowed to administrators by default.
+	// Can be given to other users, but they do not have it by default.
+	if ( ! current_user_can( 'manage_options' ) ) {
+		if ( false === $bool_response ) {
+			header( 'Status: 403 Forbidden' );
+			header( 'HTTP/1.1 403 Forbidden' );
+			exit;
+		} else {
+			return true;//restrict the access.
+		}
+
+	}
+
+	if ( true === $bool_response ) {
+		return false; // Do not restrict.
+	}
+}
 
 function breeze_which_role_folder( $hash = '' ) {
 	if ( empty( $hash ) ) {

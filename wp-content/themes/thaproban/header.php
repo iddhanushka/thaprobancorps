@@ -59,7 +59,7 @@ $container = get_theme_mod( 'thaproband_container_type' );
 						<ul>
 							<li>24/365</li>
 							<li>Call now: <a href="tel:+94770070777">(+94) 77 00 70 777</a></li>
-							<li class="fb"><a href="https://www.facebook.com/thaprobandc.lk/" target="blank"><i class="fab fa-facebook-f"></i></a></li>
+							<li class="fb"><a href="https://www.facebook.com/thaprobancorps.lk/" target="blank"><i class="fab fa-facebook-f"></i></a></li>
 							<li class="skype"><a href="skype:.cid4d855e46c2233298?call"><i class="fab fa-skype"></i></a></li>
 						</ul>
 					</div>

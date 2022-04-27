@@ -93,6 +93,7 @@ class Breeze_Settings_Import_Export {
 	 * @access public
 	 */
 	public function export_json_settings() {
+		breeze_is_restricted_access();
 		$level = '';
 		if ( is_multisite() ) {
 			$level = ( isset( $_GET['network_level'] ) ) ? $_GET['network_level'] : '';

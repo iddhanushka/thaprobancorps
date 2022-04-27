@@ -40,6 +40,7 @@ class Breeze_Configuration {
 	}
 
 	public function update_options_for_varnish() {
+		breeze_is_restricted_access();
 		check_ajax_referer( '_breeze_save_options', 'security' );
 		set_as_network_screen();
 
@@ -76,6 +77,7 @@ class Breeze_Configuration {
 	 * @since 2.0.0
 	 */
 	public function update_options_for_basic() {
+		breeze_is_restricted_access();
 		check_ajax_referer( '_breeze_save_options', 'security' );
 		set_as_network_screen();
 
@@ -155,6 +157,7 @@ class Breeze_Configuration {
 	 * @since 2.0.0
 	 */
 	public function update_options_for_file() {
+		breeze_is_restricted_access();
 		check_ajax_referer( '_breeze_save_options', 'security' );
 
 		set_as_network_screen();
@@ -246,6 +249,7 @@ class Breeze_Configuration {
 	 * @since 2.0.0
 	 */
 	public function update_options_for_preload() {
+		breeze_is_restricted_access();
 		check_ajax_referer( '_breeze_save_options', 'security' );
 		set_as_network_screen();
 
@@ -312,6 +316,7 @@ class Breeze_Configuration {
 	 * @since 2.0.0
 	 */
 	public function update_options_for_advanced() {
+		breeze_is_restricted_access();
 		check_ajax_referer( '_breeze_save_options', 'security' );
 		set_as_network_screen();
 
@@ -359,6 +364,7 @@ class Breeze_Configuration {
 	 * @since 2.0.0
 	 */
 	public function update_options_for_heartbeat() {
+		breeze_is_restricted_access();
 		check_ajax_referer( '_breeze_save_options', 'security' );
 		set_as_network_screen();
 
@@ -408,6 +414,7 @@ class Breeze_Configuration {
 	 * @since 2.0.0
 	 */
 	public function update_options_for_cdn() {
+		breeze_is_restricted_access();
 		check_ajax_referer( '_breeze_save_options', 'security' );
 		set_as_network_screen();
 
@@ -491,6 +498,7 @@ class Breeze_Configuration {
 	 * @since 2.0.0
 	 */
 	public function update_options_for_inherit() {
+		breeze_is_restricted_access();
 		// Does not have anything to save.
 		check_ajax_referer( 'breeze_inherit_settings', 'security' );
 
@@ -1139,6 +1147,7 @@ class Breeze_Configuration {
 	 *
 	 */
 	public static function breeze_ajax_clean_cache() {
+		breeze_is_restricted_access();
 		//check security nonce
 		check_ajax_referer( '_breeze_purge_cache', 'security' );
 		$result = self::breeze_clean_cache();
@@ -1151,6 +1160,7 @@ class Breeze_Configuration {
 	 * Ajax purge varnish
 	 */
 	public static function purge_varnish_action() {
+		breeze_is_restricted_access();
 		//check security
 		check_ajax_referer( '_breeze_purge_varnish', 'security' );
 
@@ -1164,6 +1174,7 @@ class Breeze_Configuration {
 	 * Ajax purge database
 	 */
 	public static function breeze_ajax_purge_database() {
+		breeze_is_restricted_access();
 		//check security
 		check_ajax_referer( '_breeze_purge_database', 'security' );
 
