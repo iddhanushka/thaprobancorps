@@ -99,6 +99,8 @@
       max-width: 25%;
       margin-bottom: 15px;
       border-radius: 50%;
+      border: 1px solid #c90;
+      padding: 3px;
     }
 
     h2 {
@@ -1074,7 +1076,7 @@
 
   #welcome-thaproband {
     padding: 40px 0;
-    background: url("../img/security-guard.png") rgba(0, 0, 0, 0.7);
+    background: url("../img/security-guard-cc.png") rgba(0, 0, 0, 0.7);
     background-repeat: no-repeat;
     background-position-x: 90%;
     background-size: 35%;
