@@ -118,7 +118,7 @@
                     <h1>Welcome to Thaproban Corps.</h1>
                     <p>Thaproban Corps. Security & Investigations (Pvt) Ltd. is a leading private security firm based in Sri Lanka. Our specialties include Commercial & Industrial Security, Event Security, Mobile Patrols, Residential Security, Body Guards (Close Protection Operations), Cash Guards, Traditional and Ceremonial Guards, Security Audits, Private Investigations, Interrogation Services and CCTV Cameras.</p>
                     <p>Being ex-servicemen managed company we are assured of a steady supply of recruits from the military and police on leaving services.</p>
-                    <p>We ensure prior orientation of all our recruits before deployment to suit client’s individual needs. Further, we ensure constant evaluation and audits, clientele, so you have the peace of mind that you are dealing with the right and reputable service provider.</p>
+                    <p>We ensure prior orientation of all our recruits before deployment to suit client’s individual needs. Further, we ensure constant evaluation and periodical training, so you have the peace of mind that you are dealing with the right and reputable service provider.</p>
                     <a href="<?php echo get_site_url() ?>/about-us">Read more</a>
                 </div>
             </div>
@@ -264,7 +264,7 @@
                             <div class="best-security-team" data-aos="fade-left" data-aos-duration="2000">
                                 <h1>Our Best Leading Security Team</h1>
                                 <p><strong>Be Bold:</strong> be proactive, make decisions, take responsibility, try new things.</p>
-                                <p><strong>Be Curious:</strong> ask questions, do some research, learn new techniques, study our clients and their industries.</p>
+                                <p><strong>Be Curious:</strong> ask questions, learn new techniques, study our clients and their industries.</p>
                                 <p><strong>Be Together:</strong> play an active role in the team, support your colleagues, collaborate, have fun.</p>
                                 <p><strong>Be Better:</strong> look for ways to improve, challenge yourself, never stop learning, strive to be the best.</p>
                                 <p>Building, developing, training, retaining and engaging the rostrum team is a daily commitment. We work hard every day to make sure that our people are supported and empowered to deliver exceptional results for our clients.</p>
